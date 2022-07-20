@@ -1,0 +1,32 @@
+
+        int32_t ret = 0;
+
+        void* dllHandle = WINRT_IMPL_LoadLibraryW(
+            L"C:/Users/rebek/source/DUALITY/x64/Debug/HV3DAPPLICATION/HV3DAPPLICATION.dll");
+
+        if (!dllHandle) { throw; };
+
+        void* pProc = WINRT_IMPL_GetProcAddress(dllHandle, "DllGetActivationFactory");
+        auto DllGetActivationFactory = reinterpret_cast<int32_t(__stdcall*)(void* classId, void** factory)>(pProc);
+
+        static const WCHAR* cname = L"HV3DAPPLICATION.HV3DApplication";
+        const size_t cnamelen = wcslen(cname);
+
+        HSTRING hcname = NULL;
+        HSTRING_HEADER header;
+        HRESULT hr = WindowsCreateStringReference(cname, cnamelen, &header, &hcname);
+
+        com_ptr< winrt::impl::abi_t<winrt::Windows::Foundation::IActivationFactory> > oCOMActivationFactory{ nullptr };
+        ret = (*DllGetActivationFactory)(&header, oCOMActivationFactory.put_void());
+
+        com_ptr< winrt::impl::abi_t<winrt::Windows::Foundation::IUnknown> > iObj{ nullptr };
+        ret = oCOMActivationFactory.get()->ActivateInstance(iObj.put_void());
+
+        oApplication = nullptr;
+        winrt::copy_from_abi(oApplication, iObj.as<HV3DDUALITY::HV3DEnvironment::IHV3DApplication>());
+
+        oApplication.get()->LoadApplication();
+
+        oCOMActivationFactory.detach();
+
+        WindowsDeleteString(hcname);

@@ -1,0 +1,58 @@
+
+        HANDLE hToken{ nullptr };
+        
+        LPCWSTR application_name{ L"C:/Users/rebek/source/DUALITY/x64/Debug/HV3DApplication/HV3DApplication.exe" };
+        
+        LPWSTR command_line{ nullptr };
+        
+        LPSECURITY_ATTRIBUTES process_attributes{ nullptr };
+        
+        LPSECURITY_ATTRIBUTES thread_attributes{ nullptr };
+        
+        BOOL inherit_handles{ true };
+        
+        DWORD creation_flags = NORMAL_PRIORITY_CLASS | CREATE_NO_WINDOW | CREATE_NEW_PROCESS_GROUP;
+        
+        LPVOID environment{ nullptr };
+        
+        LPCWSTR current_directory{ L"C:/Users/rebek/source/DUALITY/x64/Debug/DUALITY/" };
+        
+        LPSTARTUPINFOW startup_info = new STARTUPINFOW[1];
+        startup_info->cb = sizeof(STARTUPINFOW);
+        startup_info->lpReserved = nullptr;
+        startup_info->lpDesktop = nullptr;
+        startup_info->lpTitle = L"DUALITY";
+        startup_info->dwX = 0;
+        startup_info->dwY = 0;
+        startup_info->dwXSize = 0;
+        startup_info->dwYSize = 0;
+        startup_info->dwXCountChars = 0;
+        startup_info->dwYCountChars = 0;
+        startup_info->dwFillAttribute = 0;
+        startup_info->dwFlags = 0;
+        startup_info->wShowWindow = SW_SHOWDEFAULT;
+        startup_info->cbReserved2 = 0;
+        startup_info->lpReserved2 = nullptr;
+        startup_info->hStdInput = nullptr;
+        startup_info->hStdOutput = nullptr;
+        startup_info->hStdError = nullptr;
+        
+        LPPROCESS_INFORMATION process_information = new PROCESS_INFORMATION[1];
+        process_information->hProcess = nullptr;
+        process_information->hThread = nullptr;
+        process_information->dwProcessId = 0;
+        process_information->dwThreadId = 0;
+
+        BOOL ret = CreateProcessAsUserW(
+            hToken,
+            application_name,
+            command_line,
+            process_attributes,
+            thread_attributes,
+            inherit_handles,
+            creation_flags,
+            environment,
+            current_directory,
+            startup_info,
+            process_information );
+        

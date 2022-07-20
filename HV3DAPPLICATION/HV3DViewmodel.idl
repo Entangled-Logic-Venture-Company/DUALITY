@@ -1,0 +1,11 @@
+namespace HV3DAPPLICATION
+{
+    [default_interface]
+    runtimeclass HV3DViewmodel
+    {
+        HV3DViewmodel();
+
+
+    }
+
+}

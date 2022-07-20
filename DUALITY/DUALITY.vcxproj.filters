@@ -1,0 +1,133 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Midl Include="App.idl" />
+    <Midl Include="MainWindow.idl" />
+    <Midl Include="HV3DAppFrame.idl">
+      <Filter>Navigation\Framework</Filter>
+    </Midl>
+    <Midl Include="HV3DAppLoading.idl">
+      <Filter>Navigation\Framework</Filter>
+    </Midl>
+    <Midl Include="HV3DPortal.idl">
+      <Filter>Navigation\Portal</Filter>
+    </Midl>
+    <Midl Include="HV3DPortalFrame.idl">
+      <Filter>Navigation\Portal</Filter>
+    </Midl>
+    <Midl Include="PortalWindow.idl">
+      <Filter>Navigation\Portal</Filter>
+    </Midl>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="$(GeneratedFilesDir)module.g.cpp">
+      <Filter>Project</Filter>
+    </ClCompile>
+    <ClCompile Include="pch.cpp">
+      <Filter>Project</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="Assets\Wide310x150Logo.scale-200.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="Assets\StoreLogo.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="Assets\Square150x150Logo.scale-200.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="Assets\Square44x44Logo.targetsize-24_altform-unplated.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="Assets\Square44x44Logo.scale-200.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="Assets\SplashScreen.scale-200.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="Assets\LockScreenLogo.scale-200.png">
+      <Filter>Assets</Filter>
+    </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Assets">
+      <UniqueIdentifier>{e40629a5-fa19-47b3-b834-f7336bdae612}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Project">
+      <UniqueIdentifier>{8f145671-2231-4518-8911-98e63a088580}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Navigation">
+      <UniqueIdentifier>{db06ff86-2cc9-49f5-8af8-40154166a611}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Persistence">
+      <UniqueIdentifier>{05504779-600f-457c-834f-f934cb15f9f3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Persistence\RapidXML">
+      <UniqueIdentifier>{6b2a192c-e84f-4253-9b44-b4087b885f2c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Persistence\JSON">
+      <UniqueIdentifier>{dd15fc38-e2ea-443d-92e8-07591fa56fc6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Code Templates">
+      <UniqueIdentifier>{2d1b0306-1628-4bd3-bdf0-5a2bacca35e0}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <Manifest Include="app.manifest">
+      <Filter>Project</Filter>
+    </Manifest>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="pch.h">
+      <Filter>Project</Filter>
+    </ClInclude>
+    <ClInclude Include="rapidxml.hpp">
+      <Filter>Persistence\RapidXML</Filter>
+    </ClInclude>
+    <ClInclude Include="rapidxml_iterators.hpp">
+      <Filter>Persistence\RapidXML</Filter>
+    </ClInclude>
+    <ClInclude Include="rapidxml_print.hpp">
+      <Filter>Persistence\RapidXML</Filter>
+    </ClInclude>
+    <ClInclude Include="rapidxml_utils.hpp">
+      <Filter>Persistence\RapidXML</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config">
+      <Filter>Project</Filter>
+    </None>
+    <None Include="duality.cfg">
+      <Filter>Project</Filter>
+    </None>
+    <None Include="PropertySheet.props">
+      <Filter>Project</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="HV3DAppFrame.xaml">
+      <Filter>Navigation</Filter>
+    </Page>
+    <Page Include="HV3DPortal.xaml">
+      <Filter>Navigation</Filter>
+    </Page>
+    <Page Include="MainWindow.xaml">
+      <Filter>Navigation</Filter>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="LoadDll.txt">
+      <Filter>Code Templates</Filter>
+    </Text>
+    <Text Include="CreateProcess.txt">
+      <Filter>Code Templates</Filter>
+    </Text>
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Filter>Navigation</Filter>
+    </ApplicationDefinition>
+  </ItemGroup>
+</Project>

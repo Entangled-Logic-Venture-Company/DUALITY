@@ -1,0 +1,23 @@
+namespace HV3DHEADER
+{
+    [default_interface]
+    runtimeclass HV3DHeader : HV3DDUALITY.HV3DEnvironment.IHV3DHeader
+    {
+		HV3DHeader();
+
+		HV3DDUALITY.HV3DName									FileXML;
+	
+		HV3DDUALITY.HV3DDate									DateModified;
+		HV3DDUALITY.HV3DPath									PathJson;
+		HV3DDUALITY.HV3DFile									FileJson;
+	
+		HV3DDUALITY.HV3DEnvironment.HV3DEnvironmentCPU			oEnvironmentCPU;
+		HV3DDUALITY.HV3DEnvironment.HV3DEnvironmentGPU			oEnvironmentGPU;
+		HV3DDUALITY.HV3DEnvironment.HV3DEnvironmentBindings		oEnvironmentBindings;
+		HV3DDUALITY.HV3DEnvironment.HV3DEnvironmentShell		oEnvironmentShell;
+	
+		Windows.Foundation.Collections.IVector<HV3DDUALITY.HV3DEnvironment.HV3DEnvironmentPlugin> oEnvironmentPlugins;
+
+    }
+
+}

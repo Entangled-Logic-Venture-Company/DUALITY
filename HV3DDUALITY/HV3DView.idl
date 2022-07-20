@@ -1,0 +1,76 @@
+import "HV3DFramework.idl";
+
+namespace HV3DDUALITY.HV3DView {
+
+	struct HV3DRenderingEngine {
+		HV3DDUALITY.HV3DName						RenderingEngine;
+		HV3DDUALITY.HV3DDate						DateModified;
+		HV3DDUALITY.HV3DVersion						Version;
+		HV3DDUALITY.HV3DActivationClassFactory		ClassFactory;
+	};
+
+	struct HV3DResolution {
+		Int32 x;
+		Int32 y;
+	};
+
+	struct HV3DAA {
+		String AntiAliasing;
+	};
+
+	struct HV3DMultiSampling {
+		String MultiSampling;
+	};
+
+	struct HV3DSuperSampling {
+		Boolean SuperSampling;
+	};
+
+	struct HV3DFilterMode {
+		String FilterMode;
+	};
+
+	struct HV3DPixelFilter {
+		HV3DFilterMode		FilterMode;
+		Int32				SizeX;
+		Int32				SizeY;
+		Boolean				PixelFilter;
+	};
+
+	struct HV3DGamma {
+		Single Gamma;
+	};
+
+	struct HV3DNearPlane {
+		Single NearPlane;
+	};
+
+	struct HV3DFarPlane {
+		Single FarPlane;
+	};
+
+	[uuid(895F1DCD-D1D0-414E-BBFA-31D0A298B29D)]
+	[version(0x10000001)]
+	interface IHV3DCoordinateSpace : IInspectable
+	{
+		void WriteCluster();
+
+	};
+
+	[uuid(4C1D5F78-2464-4198-A978-3683434838BD)]
+	[version(0x10000001)]
+	interface IHV3DPipeline : IInspectable
+	{
+		void LoadPipeline();
+
+	};
+
+	[uuid(E5474E91-812D-4932-BA00-096B099CC92A)]
+	[version(0x10000001)]
+	interface IHV3DCoordinateSpaceView : IInspectable
+	{
+		void GrabCoordinateSpaceView();
+
+	};
+
+}

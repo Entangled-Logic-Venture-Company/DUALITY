@@ -1,0 +1,35 @@
+namespace HV3DDUALITY
+{
+	struct HV3DName {
+		String Name;
+	};
+
+	struct HV3DPath {
+		String Path;
+	};
+
+	struct HV3DFile {
+		String File;
+	};
+
+	struct HV3DDate {
+		String Date;
+	};
+
+	struct HV3DVersion {
+		String Version;
+	};
+
+	enum HV3DBasicError {
+		HV3D_OK			= 0x00000000,
+		HV3D_UNKNOWN	= 0x00000001,
+		HV3D_OUT_OF_MEM = 0x00000002,
+	};
+
+	struct HV3DActivationClassFactory {
+		String ActivatableClassId;
+		Guid iid;
+	};
+
+}
+

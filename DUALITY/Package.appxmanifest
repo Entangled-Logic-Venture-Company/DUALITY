@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<Package
+  xmlns="http://schemas.microsoft.com/appx/manifest/foundation/windows10"
+  xmlns:uap="http://schemas.microsoft.com/appx/manifest/uap/windows10"
+  xmlns:rescap="http://schemas.microsoft.com/appx/manifest/foundation/windows10/restrictedcapabilities"
+  IgnorableNamespaces="uap rescap">
+
+  <Identity
+    Name="837f0535-5d07-4290-983b-a49988c57b12"
+    Publisher="CN=rebek"
+    Version="1.0.0.0" />
+
+  <Properties>
+    <DisplayName>DUALITY</DisplayName>
+    <PublisherDisplayName>rebek</PublisherDisplayName>
+    <Logo>Assets\StoreLogo.png</Logo>
+  </Properties>
+
+  <Dependencies>
+    <TargetDeviceFamily Name="Windows.Universal" MinVersion="10.0.17763.0" MaxVersionTested="10.0.19041.0" />
+    <TargetDeviceFamily Name="Windows.Desktop" MinVersion="10.0.17763.0" MaxVersionTested="10.0.19041.0" />
+  </Dependencies>
+
+  <Resources>
+    <Resource Language="x-generate"/>
+  </Resources>
+
+  <Applications>
+  
+    <Application Id="App"
+      Executable="$targetnametoken$.exe"
+      EntryPoint="$targetentrypoint$">
+      <uap:VisualElements
+        DisplayName="DUALITY"
+        Description="DUALITY"
+        BackgroundColor="transparent"
+        Square150x150Logo="Assets\Square150x150Logo.png"
+        Square44x44Logo="Assets\Square44x44Logo.png">
+        <uap:DefaultTile Wide310x150Logo="Assets\Wide310x150Logo.png" />
+        <uap:SplashScreen Image="Assets\SplashScreen.png" />
+      </uap:VisualElements>
+
+	</Application>
+  
+  </Applications>	
+  
+  <Capabilities>
+    <rescap:Capability Name="runFullTrust" />
+  </Capabilities>
+
+  <Extensions>
+	  
+	  <Extension Category="windows.activatableClass.proxyStub">
+		  <ProxyStub ClassId="ce2e6fc5-2fd3-4092-9794-88bace608129">
+			  <Path>HV3DDUALITY.dll</Path>
+			  <Interface Name="IHV3DHeader" InterfaceId="C567AE0B-27FD-46EC-B23C-766F91F1DEBA"/>
+			  <Interface Name="IHV3DGUI" InterfaceId="157F533E-5EFC-48C7-BACA-B506E4857B90"/>
+			  <Interface Name="IHV3DShell" InterfaceId="B0344658-8549-4D45-8CBE-96A89144B1AB"/>
+			  <Interface Name="IHV3DPipeline" InterfaceId="4C1D5F78-2464-4198-A978-3683434838BD"/>
+			  <Interface Name="IHV3DCoordinateSpace" InterfaceId="895F1DCD-D1D0-414E-BBFA-31D0A298B29D"/>
+			  <Interface Name="IHV3DCoordinateSpaceView" InterfaceId="E5474E91-812D-4932-BA00-096B099CC92A"/>
+			  <Interface Name="IHV3DPortal" InterfaceId="23E3D5AD-6C7A-483D-AB2E-166E9CD435BE"/>
+			  <Interface Name="IHV3DCluster" InterfaceId="EBEF780B-2115-492E-8AC8-47BF7D188ABF"/>
+		  </ProxyStub>
+	  </Extension>
+	  
+	  <Extension Category="windows.activatableClass.inProcessServer">
+		  <InProcessServer>
+			  <Path>HV3DPROJECT.dll</Path>
+			  <ActivatableClass ActivatableClassId="HV3DPROJECT.DHV3DHeader" ThreadingModel="both" />
+		  </InProcessServer>
+	  </Extension>
+
+  </Extensions>
+
+</Package>

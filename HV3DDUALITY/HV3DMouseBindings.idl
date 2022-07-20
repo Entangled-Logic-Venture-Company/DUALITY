@@ -1,0 +1,9 @@
+import "HV3DFramework.idl";
+
+namespace HV3DDUALITY.HV3DBindings {
+
+	struct HV3DMouseBindings {
+		String Configuration;
+	};
+
+}

@@ -1,0 +1,10 @@
+namespace PeregrineX12
+{
+    [default_interface]
+    runtimeclass HV3DPeregrineX12 : HV3DDUALITY.HV3DView.IHV3DPipeline
+    {
+        HV3DPeregrineX12();
+
+    }
+
+}
