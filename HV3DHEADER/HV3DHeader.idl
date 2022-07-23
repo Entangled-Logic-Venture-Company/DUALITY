@@ -11,12 +11,12 @@ namespace HV3DHEADER
 		HV3DDUALITY.HV3DPath									PathJson;
 		HV3DDUALITY.HV3DFile									FileJson;
 	
-		HV3DDUALITY.HV3DEnvironment.HV3DEnvironmentCPU			oEnvironmentCPU;
-		HV3DDUALITY.HV3DEnvironment.HV3DEnvironmentGPU			oEnvironmentGPU;
-		HV3DDUALITY.HV3DEnvironment.HV3DEnvironmentBindings		oEnvironmentBindings;
-		HV3DDUALITY.HV3DEnvironment.HV3DEnvironmentShell		oEnvironmentShell;
+		HV3DDUALITY.HV3DEnvironment.HV3DEnvironmentCPU			EnvironmentCPU;
+		HV3DDUALITY.HV3DEnvironment.HV3DEnvironmentGPU			EnvironmentGPU;
+		HV3DDUALITY.HV3DEnvironment.HV3DEnvironmentBindings		EnvironmentBindings;
+		HV3DDUALITY.HV3DEnvironment.HV3DEnvironmentShell		EnvironmentShell;
 	
-		Windows.Foundation.Collections.IVector<HV3DDUALITY.HV3DEnvironment.HV3DEnvironmentPlugin> oEnvironmentPlugins;
+		Windows.Foundation.Collections.IVector<HV3DDUALITY.HV3DEnvironment.HV3DEnvironmentPlugin> EnvironmentPlugins;
 
     }
 

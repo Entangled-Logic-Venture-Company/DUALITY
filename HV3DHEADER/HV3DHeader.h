@@ -12,34 +12,34 @@ namespace winrt::HV3DHEADER::implementation
 	public:
 		HV3DHeader();
 		
-		void LoadFromFile(HV3DDUALITY::HV3DFile file) { return; };
+		virtual void HV3DLoadFromFile(HV3DDUALITY::HV3DFile file);
 
 		HV3DDUALITY::HV3DName FileXML();
-		void FileXML(HV3DDUALITY::HV3DName FileName);
+		void FileXML(HV3DDUALITY::HV3DName file);
 
 		HV3DDUALITY::HV3DDate DateModified();
-		void DateModified(HV3DDUALITY::HV3DDate Date);
+		void DateModified(HV3DDUALITY::HV3DDate date);
 
 		HV3DDUALITY::HV3DPath PathJson();
-		void PathJson(HV3DDUALITY::HV3DPath Path);
+		void PathJson(HV3DDUALITY::HV3DPath path);
 
 		HV3DDUALITY::HV3DFile FileJson();
-		void FileJson(HV3DDUALITY::HV3DFile File);
+		void FileJson(HV3DDUALITY::HV3DFile file);
 
-		HV3DDUALITY::HV3DEnvironment::HV3DEnvironmentCPU oEnvironmentCPU();
-		void oEnvironmentCPU(HV3DDUALITY::HV3DEnvironment::HV3DEnvironmentCPU EnvCPU);
+		HV3DDUALITY::HV3DEnvironment::HV3DEnvironmentCPU EnvironmentCPU();
+		void EnvironmentCPU(HV3DDUALITY::HV3DEnvironment::HV3DEnvironmentCPU ecpu);
 
-		HV3DDUALITY::HV3DEnvironment::HV3DEnvironmentGPU oEnvironmentGPU();
-		void oEnvironmentGPU(HV3DDUALITY::HV3DEnvironment::HV3DEnvironmentGPU EnvGPU);
+		HV3DDUALITY::HV3DEnvironment::HV3DEnvironmentGPU EnvironmentGPU();
+		void EnvironmentGPU(HV3DDUALITY::HV3DEnvironment::HV3DEnvironmentGPU egpu);
 
-		HV3DDUALITY::HV3DEnvironment::HV3DEnvironmentBindings oEnvironmentBindings();
-		void oEnvironmentBindings(HV3DDUALITY::HV3DEnvironment::HV3DEnvironmentBindings EnvBind);
+		HV3DDUALITY::HV3DEnvironment::HV3DEnvironmentBindings EnvironmentBindings();
+		void EnvironmentBindings(HV3DDUALITY::HV3DEnvironment::HV3DEnvironmentBindings bind);
 
-		HV3DDUALITY::HV3DEnvironment::HV3DEnvironmentShell oEnvironmentShell();
-		void oEnvironmentShell(HV3DDUALITY::HV3DEnvironment::HV3DEnvironmentShell Shell);
+		HV3DDUALITY::HV3DEnvironment::HV3DEnvironmentShell EnvironmentShell();
+		void EnvironmentShell(HV3DDUALITY::HV3DEnvironment::HV3DEnvironmentShell eshell);
 
-		Windows::Foundation::Collections::IVector<HV3DDUALITY::HV3DEnvironment::HV3DEnvironmentPlugin> oEnvironmentPlugins();
-		void oEnvironmentPlugins(Windows::Foundation::Collections::IVector<HV3DDUALITY::HV3DEnvironment::HV3DEnvironmentPlugin> Plugins);
+		Windows::Foundation::Collections::IVector<HV3DDUALITY::HV3DEnvironment::HV3DEnvironmentPlugin> EnvironmentPlugins();
+		void EnvironmentPlugins(Windows::Foundation::Collections::IVector<HV3DDUALITY::HV3DEnvironment::HV3DEnvironmentPlugin> plugs);
 		
 	};
 

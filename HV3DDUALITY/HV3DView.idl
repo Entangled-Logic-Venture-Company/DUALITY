@@ -3,10 +3,10 @@ import "HV3DFramework.idl";
 namespace HV3DDUALITY.HV3DView {
 
 	struct HV3DRenderingEngine {
-		HV3DDUALITY.HV3DName						RenderingEngine;
-		HV3DDUALITY.HV3DDate						DateModified;
-		HV3DDUALITY.HV3DVersion						Version;
-		HV3DDUALITY.HV3DActivationClassFactory		ClassFactory;
+		HV3DDUALITY.HV3DName					HV3DTag;
+		HV3DDUALITY.HV3DDate					HV3DModified;
+		HV3DDUALITY.HV3DVersion					HV3DRelease;
+		HV3DDUALITY.HV3DActivationFactory		HV3DEngine;
 	};
 
 	struct HV3DResolution {
@@ -15,45 +15,45 @@ namespace HV3DDUALITY.HV3DView {
 	};
 
 	struct HV3DAA {
-		String AntiAliasing;
+		String s;
 	};
 
 	struct HV3DMultiSampling {
-		String MultiSampling;
+		String s;
 	};
 
 	struct HV3DSuperSampling {
-		Boolean SuperSampling;
+		Boolean b;
 	};
 
 	struct HV3DFilterMode {
-		String FilterMode;
+		String s;
 	};
 
 	struct HV3DPixelFilter {
-		HV3DFilterMode		FilterMode;
-		Int32				SizeX;
-		Int32				SizeY;
-		Boolean				PixelFilter;
+		HV3DFilterMode		m;
+		Int32				x;
+		Int32				y;
+		Boolean				b;
 	};
 
 	struct HV3DGamma {
-		Single Gamma;
+		Single s;
 	};
 
 	struct HV3DNearPlane {
-		Single NearPlane;
+		Single f;
 	};
 
 	struct HV3DFarPlane {
-		Single FarPlane;
+		Single f;
 	};
 
 	[uuid(895F1DCD-D1D0-414E-BBFA-31D0A298B29D)]
 	[version(0x10000001)]
 	interface IHV3DCoordinateSpace : IInspectable
 	{
-		void WriteCluster();
+		void HV3DWriteCluster();
 
 	};
 
@@ -61,7 +61,13 @@ namespace HV3DDUALITY.HV3DView {
 	[version(0x10000001)]
 	interface IHV3DPipeline : IInspectable
 	{
-		void LoadPipeline();
+		void HV3DOnInit(Object panel);
+
+		void HV3DOnUpdate();
+		
+		void HV3DOnRender();
+		
+		void HV3DOnDestroy();
 
 	};
 
@@ -69,7 +75,7 @@ namespace HV3DDUALITY.HV3DView {
 	[version(0x10000001)]
 	interface IHV3DCoordinateSpaceView : IInspectable
 	{
-		void GrabCoordinateSpaceView();
+		void HV3DGrabCoordinateSpaceView();
 
 	};
 

@@ -1,0 +1,11 @@
+namespace DUALITY
+{
+    [default_interface]
+    runtimeclass HV3DCoreFrame : Microsoft.UI.Xaml.Controls.Frame,
+        HV3DDUALITY.HV3DEnvironment.IHV3DCallbackInterface
+    {
+        HV3DCoreFrame();
+
+    }
+
+}

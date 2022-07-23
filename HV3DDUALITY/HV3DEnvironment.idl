@@ -4,47 +4,47 @@ import "HV3DMouseBindings.idl";
 
 namespace HV3DDUALITY.HV3DEnvironment {
 	struct HV3DEnvironmentCPU {
-		HV3DDUALITY.HV3DPath ProjectPath;
-		HV3DDUALITY.HV3DPath PluginPath;
+		HV3DDUALITY.HV3DPath HV3DProject;
+		HV3DDUALITY.HV3DPath HV3DPlugin;
 	};
 
 	struct HV3DEnvironmentGPU {
-		HV3DDUALITY.HV3DView.HV3DRenderingEngine Pipeline;
-		HV3DDUALITY.HV3DView.HV3DResolution Resolution;
-		HV3DDUALITY.HV3DView.HV3DAA AntiAliassing;
-		HV3DDUALITY.HV3DView.HV3DMultiSampling MultiSampling;
-		HV3DDUALITY.HV3DView.HV3DSuperSampling SuperSampling;
-		HV3DDUALITY.HV3DView.HV3DFilterMode FilterMode;
-		HV3DDUALITY.HV3DView.HV3DPixelFilter PixelFilter;
-		HV3DDUALITY.HV3DView.HV3DGamma Gamma;
-		HV3DDUALITY.HV3DView.HV3DNearPlane NearPlane;
-		HV3DDUALITY.HV3DView.HV3DFarPlane FarPlane;
+		HV3DDUALITY.HV3DView.HV3DRenderingEngine	re;
+		HV3DDUALITY.HV3DView.HV3DResolution			r;
+		HV3DDUALITY.HV3DView.HV3DAA					aa;
+		HV3DDUALITY.HV3DView.HV3DMultiSampling		ms;
+		HV3DDUALITY.HV3DView.HV3DSuperSampling		ss;
+		HV3DDUALITY.HV3DView.HV3DFilterMode			pm;
+		HV3DDUALITY.HV3DView.HV3DPixelFilter		pf;
+		HV3DDUALITY.HV3DView.HV3DGamma				g;
+		HV3DDUALITY.HV3DView.HV3DNearPlane			np;
+		HV3DDUALITY.HV3DView.HV3DFarPlane			fp;
 	};
 
 	struct HV3DEnvironmentBindings {
-		HV3DDUALITY.HV3DBindings.HV3DKeyboardBindings KeyboardBindings;
-		HV3DDUALITY.HV3DBindings.HV3DMouseBindings MouseBindings;
+		HV3DDUALITY.HV3DBindings.HV3DKeyboardBindings	kb;
+		HV3DDUALITY.HV3DBindings.HV3DMouseBindings		mb;
 	};
 
 	struct HV3DEnvironmentShell {
-		HV3DDUALITY.HV3DName ShellProvider;
-		HV3DDUALITY.HV3DDate DateModified;
-		HV3DDUALITY.HV3DVersion Version;
-		HV3DDUALITY.HV3DActivationClassFactory ClassFactory;
+		HV3DDUALITY.HV3DName					sp;
+		HV3DDUALITY.HV3DDate					dm;
+		HV3DDUALITY.HV3DVersion					v;
+		HV3DDUALITY.HV3DActivationFactory		af;
 	};
 
 	struct HV3DEnvironmentPlugin {
-		HV3DDUALITY.HV3DPath PathJson;
-		HV3DDUALITY.HV3DFile FileJson;
-		HV3DDUALITY.HV3DDate DateModified;
-		HV3DDUALITY.HV3DVersion Version;
+		HV3DDUALITY.HV3DPath		pj;
+		HV3DDUALITY.HV3DFile		fj;
+		HV3DDUALITY.HV3DDate		dm;
+		HV3DDUALITY.HV3DVersion		v;
 	};
 
 	[uuid(C567AE0B-27FD-46EC-B23C-766F91F1DEBA)]
 	[version(0x10000001)]
 	interface IHV3DHeader : IInspectable
 	{
-		HRESULT LoadFromFile(HV3DDUALITY.HV3DFile file);
+		HRESULT HV3DLoadFromFile(HV3DDUALITY.HV3DFile file);
 
 	};
 
@@ -60,7 +60,7 @@ namespace HV3DDUALITY.HV3DEnvironment {
 	[version(0x10000001)]
 	interface IHV3DPortalInterface : IInspectable
 	{
-		void GetCallbackInterface(IHV3DCallbackInterface e);
+		void HV3DGetCallbackInterface(IHV3DCallbackInterface e);
 
 	};
 
@@ -68,7 +68,7 @@ namespace HV3DDUALITY.HV3DEnvironment {
 	[version(0x10000001)]
 	interface IHV3DApplication : IInspectable
 	{
-		void LoadApplication();
+		void HV3DLoadApplication();
 
 	};
 
@@ -76,7 +76,7 @@ namespace HV3DDUALITY.HV3DEnvironment {
 	[version(0x10000001)]
 	interface IHV3DShell : IInspectable
 	{
-		void NewShell();
+		void HV3DNewShell();
 
 	};
 
@@ -84,7 +84,7 @@ namespace HV3DDUALITY.HV3DEnvironment {
 	[version(0x10000001)]
 	interface IHV3DCluster : IInspectable
 	{
-		void MountCluster();
+		void HV3DMountCluster();
 
 	};
 	

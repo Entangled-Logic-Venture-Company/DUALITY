@@ -4,7 +4,7 @@
     <Midl Include="App.idl" />
     <Midl Include="MainWindow.idl" />
     <Midl Include="HV3DViewmodel.idl">
-      <Filter>Runtime Classes</Filter>
+      <Filter>Runtime Class</Filter>
     </Midl>
   </ItemGroup>
   <ItemGroup>
@@ -15,7 +15,7 @@
       <Filter>Project</Filter>
     </ClCompile>
     <ClCompile Include="HV3DViewmodel.cpp">
-      <Filter>Runtime Classes</Filter>
+      <Filter>Runtime Class</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -51,7 +51,7 @@
     <Filter Include="Container">
       <UniqueIdentifier>{1adce586-eb5c-43c8-ac88-99e8a5191642}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Runtime Classes">
+    <Filter Include="Runtime Class">
       <UniqueIdentifier>{f599f86c-16e1-4dd5-b9b1-75a2593fef66}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
@@ -64,27 +64,31 @@
     <None Include="packages.config">
       <Filter>Project</Filter>
     </None>
+    <None Include="PropertySheet.props">
+      <Filter>Project</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h">
       <Filter>Project</Filter>
     </ClInclude>
     <ClInclude Include="HV3DViewmodel.h">
-      <Filter>Runtime Classes</Filter>
+      <Filter>Runtime Class</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <Text Include="readme.txt">
-      <Filter>Project</Filter>
-    </Text>
-  </ItemGroup>
-  <ItemGroup>
-    <ApplicationDefinition Include="App.xaml">
+    <ApplicationDefinition Include="Container.xaml">
       <Filter>Container</Filter>
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
-    <Page Include="MainWindow.xaml">
+    <Page Include="ContainerWindow.xaml">
+      <Filter>Container</Filter>
+    </Page>
+    <Page Include="ContainerFrame.xaml">
+      <Filter>Container</Filter>
+    </Page>
+    <Page Include="ContainerUI.xaml">
       <Filter>Container</Filter>
     </Page>
   </ItemGroup>

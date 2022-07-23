@@ -11,10 +11,6 @@
     <ProjectGuid>{0c042a07-2d5e-41f1-94e1-382215f34412}</ProjectGuid>
     <ProjectName>HV3DAPPLICATION</ProjectName>
     <RootNamespace>HV3DAPPLICATION</RootNamespace>
-    <!--
-      $(TargetName) should be same as $(RootNamespace) so that the produced binaries (.exe/.pri/etc.)
-      have a name that matches the .winmd
-    -->
     <TargetName>$(RootNamespace)</TargetName>
     <DefaultLanguage>en-US</DefaultLanguage>
     <MinimumVisualStudioVersion>16.0</MinimumVisualStudioVersion>
@@ -76,6 +72,24 @@
   <ImportGroup Label="PropertySheets">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="PropertySheet.props" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|arm64'">
+    <Import Project="PropertySheet.props" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="PropertySheet.props" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="PropertySheet.props" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|arm64'">
+    <Import Project="PropertySheet.props" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="PropertySheet.props" />
+  </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <ItemDefinitionGroup>
     <ClCompile>
@@ -109,47 +123,76 @@
     <Manifest Include="app.manifest" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="HV3DViewmodel.h" />
+    <ClInclude Include="ContainerFrame.xaml.h">
+      <DependentUpon>ContainerFrame.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </ClInclude>
+    <ClInclude Include="ContainerUI.xaml.h">
+      <DependentUpon>ContainerUI.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </ClInclude>
+    <ClInclude Include="HV3DViewmodel.h">
+      <DependentUpon>HV3DViewmodel.idl</DependentUpon>
+    </ClInclude>
     <ClInclude Include="pch.h" />
-    <ClInclude Include="App.xaml.h">
-      <DependentUpon>App.xaml</DependentUpon>
+    <ClInclude Include="Container.xaml.h">
+      <DependentUpon>Container.xaml</DependentUpon>
     </ClInclude>
-    <ClInclude Include="MainWindow.xaml.h">
-      <DependentUpon>MainWindow.xaml</DependentUpon>
+    <ClInclude Include="ContainerWindow.xaml.h">
+      <DependentUpon>ContainerWindow.xaml</DependentUpon>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ApplicationDefinition Include="App.xaml" />
-    <Page Include="MainWindow.xaml" />
+    <ApplicationDefinition Include="Container.xaml" />
+    <Page Include="ContainerFrame.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="ContainerUI.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="ContainerWindow.xaml" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="ContainerFrame.xaml.cpp">
+      <DependentUpon>ContainerFrame.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </ClCompile>
+    <ClCompile Include="ContainerUI.xaml.cpp">
+      <DependentUpon>ContainerUI.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </ClCompile>
     <ClCompile Include="pch.cpp">
       <PrecompiledHeader>Create</PrecompiledHeader>
     </ClCompile>
-    <ClCompile Include="App.xaml.cpp">
-      <DependentUpon>App.xaml</DependentUpon>
+    <ClCompile Include="Container.xaml.cpp">
+      <DependentUpon>Container.xaml</DependentUpon>
     </ClCompile>
-    <ClCompile Include="MainWindow.xaml.cpp">
-      <DependentUpon>MainWindow.xaml</DependentUpon>
+    <ClCompile Include="ContainerWindow.xaml.cpp">
+      <DependentUpon>ContainerWindow.xaml</DependentUpon>
     </ClCompile>
     <ClCompile Include="$(GeneratedFilesDir)module.g.cpp" />
-    <ClCompile Include="HV3DViewmodel.cpp" />
+    <ClCompile Include="HV3DViewmodel.cpp">
+      <DependentUpon>HV3DViewmodel.idl</DependentUpon>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <Midl Include="App.idl">
+    <Midl Include="Container.idl">
       <SubType>Code</SubType>
-      <DependentUpon>App.xaml</DependentUpon>
+      <DependentUpon>Container.xaml</DependentUpon>
+    </Midl>
+    <Midl Include="ContainerFrame.idl">
+      <DependentUpon>ContainerFrame.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Midl>
+    <Midl Include="ContainerUI.idl">
+      <DependentUpon>ContainerUI.xaml</DependentUpon>
+      <SubType>Code</SubType>
     </Midl>
     <Midl Include="HV3DViewmodel.idl" />
-    <Midl Include="MainWindow.idl">
+    <Midl Include="ContainerWindow.idl">
       <SubType>Code</SubType>
-      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <DependentUpon>ContainerWindow.xaml</DependentUpon>
     </Midl>
-  </ItemGroup>
-  <ItemGroup>
-    <Text Include="readme.txt">
-      <DeploymentContent>false</DeploymentContent>
-    </Text>
   </ItemGroup>
   <ItemGroup>
     <Image Include="Assets\LockScreenLogo.scale-200.png" />
@@ -160,22 +203,13 @@
     <Image Include="Assets\StoreLogo.png" />
     <Image Include="Assets\Wide310x150Logo.scale-200.png" />
   </ItemGroup>
-  <!-- 
-    Defining the "Msix" ProjectCapability here allows the Single-project MSIX Packaging
-    Tools extension to be activated for this project even if the Windows App SDK Nuget
-    package has not yet been restored.
-  -->
   <ItemGroup Condition="'$(DisableMsixProjectCapabilityAddedByProject)'!='true' and '$(EnableMsixTooling)'=='true'">
     <ProjectCapability Include="Msix" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+    <None Include="PropertySheet.props" />
   </ItemGroup>
-  <!-- 
-    Defining the "HasPackageAndPublishMenuAddedByProject" property here allows the Solution 
-    Explorer "Package and Publish" context menu entry to be enabled for this project even if 
-    the Windows App SDK Nuget package has not yet been restored.
-  -->
   <PropertyGroup Condition="'$(DisableHasPackageAndPublishMenuAddedByProject)'!='true' and '$(EnableMsixTooling)'=='true'">
     <HasPackageAndPublishMenu>true</HasPackageAndPublishMenu>
   </PropertyGroup>

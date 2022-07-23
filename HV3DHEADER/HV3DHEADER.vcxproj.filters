@@ -22,7 +22,7 @@
     <ClCompile Include="pch.cpp">
       <Filter>Project</Filter>
     </ClCompile>
-    <ClCompile Include="DHV3DHeader.cpp">
+    <ClCompile Include="HV3DHeader.cpp">
       <Filter>Runtime Classes</Filter>
     </ClCompile>
   </ItemGroup>
@@ -45,9 +45,6 @@
   <ItemGroup>
     <ClInclude Include="pch.h">
       <Filter>Project</Filter>
-    </ClInclude>
-    <ClInclude Include="DHV3DHeader.h">
-      <Filter>Runtime Classes</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

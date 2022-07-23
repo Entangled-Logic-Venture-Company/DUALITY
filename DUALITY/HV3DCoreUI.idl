@@ -1,0 +1,15 @@
+namespace DUALITY
+{
+    [default_interface]
+    runtimeclass HV3DCoreUI : Microsoft.UI.Xaml.Controls.Page,
+        HV3DDUALITY.HV3DEnvironment.IHV3DPortalInterface
+    {
+        HV3DCoreUI();
+
+        HV3DHEADER.HV3DHeader Header();
+
+        Single isSplashVisible;
+
+    }
+
+}

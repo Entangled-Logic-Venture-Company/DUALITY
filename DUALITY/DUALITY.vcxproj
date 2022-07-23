@@ -123,18 +123,18 @@
     <Manifest Include="app.manifest" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="HV3DAppFrame.xaml.h">
-      <DependentUpon>HV3DAppFrame.xaml</DependentUpon>
+    <ClInclude Include="HV3DCoreFrame.xaml.h">
+      <DependentUpon>HV3DCoreFrame.xaml</DependentUpon>
     </ClInclude>
-    <ClInclude Include="HV3DPortal.xaml.h">
-      <DependentUpon>HV3DPortal.xaml</DependentUpon>
+    <ClInclude Include="HV3DCoreUI.xaml.h">
+      <DependentUpon>HV3DCoreUI.xaml</DependentUpon>
     </ClInclude>
     <ClInclude Include="pch.h" />
-    <ClInclude Include="App.xaml.h">
-      <DependentUpon>App.xaml</DependentUpon>
+    <ClInclude Include="Core.xaml.h">
+      <DependentUpon>Core.xaml</DependentUpon>
     </ClInclude>
-    <ClInclude Include="MainWindow.xaml.h">
-      <DependentUpon>MainWindow.xaml</DependentUpon>
+    <ClInclude Include="HV3DCoreWindow.xaml.h">
+      <DependentUpon>HV3DCoreWindow.xaml</DependentUpon>
     </ClInclude>
     <ClInclude Include="rapidxml.hpp" />
     <ClInclude Include="rapidxml_iterators.hpp" />
@@ -142,45 +142,45 @@
     <ClInclude Include="rapidxml_utils.hpp" />
   </ItemGroup>
   <ItemGroup>
-    <ApplicationDefinition Include="App.xaml" />
-    <Page Include="HV3DAppFrame.xaml" />
-    <Page Include="HV3DPortal.xaml" />
-    <Page Include="MainWindow.xaml" />
+    <ApplicationDefinition Include="Core.xaml" />
+    <Page Include="HV3DCoreFrame.xaml" />
+    <Page Include="HV3DCoreUI.xaml" />
+    <Page Include="HV3DCoreWindow.xaml" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="HV3DAppFrame.xaml.cpp">
-      <DependentUpon>HV3DAppFrame.xaml</DependentUpon>
+    <ClCompile Include="HV3DCoreFrame.xaml.cpp">
+      <DependentUpon>HV3DCoreFrame.xaml</DependentUpon>
     </ClCompile>
-    <ClCompile Include="HV3DPortal.xaml.cpp">
-      <DependentUpon>HV3DPortal.xaml</DependentUpon>
+    <ClCompile Include="HV3DCoreUI.xaml.cpp">
+      <DependentUpon>HV3DCoreUI.xaml</DependentUpon>
     </ClCompile>
     <ClCompile Include="pch.cpp">
       <PrecompiledHeader>Create</PrecompiledHeader>
     </ClCompile>
-    <ClCompile Include="App.xaml.cpp">
-      <DependentUpon>App.xaml</DependentUpon>
+    <ClCompile Include="Core.xaml.cpp">
+      <DependentUpon>Core.xaml</DependentUpon>
     </ClCompile>
-    <ClCompile Include="MainWindow.xaml.cpp">
-      <DependentUpon>MainWindow.xaml</DependentUpon>
+    <ClCompile Include="HV3DCoreWindow.xaml.cpp">
+      <DependentUpon>HV3DCoreWindow.xaml</DependentUpon>
     </ClCompile>
     <ClCompile Include="$(GeneratedFilesDir)module.g.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <Midl Include="App.idl">
+    <Midl Include="Core.idl">
       <SubType>Code</SubType>
-      <DependentUpon>App.xaml</DependentUpon>
+      <DependentUpon>Core.xaml</DependentUpon>
     </Midl>
-    <Midl Include="HV3DAppFrame.idl">
+    <Midl Include="HV3DCoreFrame.idl">
       <SubType>Code</SubType>
-      <DependentUpon>HV3DAppFrame.xaml</DependentUpon>
+      <DependentUpon>HV3DCoreFrame.xaml</DependentUpon>
     </Midl>
-    <Midl Include="HV3DPortal.idl">
+    <Midl Include="HV3DCoreUI.idl">
       <SubType>Code</SubType>
-      <DependentUpon>HV3DPortal.xaml</DependentUpon>
+      <DependentUpon>HV3DCoreUI.xaml</DependentUpon>
     </Midl>
-    <Midl Include="MainWindow.idl">
+    <Midl Include="HV3DCoreWindow.idl">
       <SubType>Code</SubType>
-      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <DependentUpon>HV3DCoreWindow.xaml</DependentUpon>
     </Midl>
   </ItemGroup>
   <ItemGroup>

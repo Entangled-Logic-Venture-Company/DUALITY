@@ -11,14 +11,22 @@
     <Filter Include="Project">
       <UniqueIdentifier>{62cf38ab-5e63-4dd3-a318-ffd68bd287d8}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Runtime Class">
+      <UniqueIdentifier>{5eac9f81-af41-4578-8712-89cb462e074a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Library">
+      <UniqueIdentifier>{21f4cac7-bf74-430f-8181-be02dff36156}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="HV3DPeregrineX12.cpp" />
     <ClCompile Include="$(GeneratedFilesDir)module.g.cpp">
       <Filter>Project</Filter>
     </ClCompile>
     <ClCompile Include="pch.cpp">
       <Filter>Project</Filter>
+    </ClCompile>
+    <ClCompile Include="HV3DPeregrineX12.cpp">
+      <Filter>Runtime Class</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -34,6 +42,9 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h">
+      <Filter>Project</Filter>
+    </ClInclude>
+    <ClInclude Include="d3dx12.h">
       <Filter>Project</Filter>
     </ClInclude>
   </ItemGroup>

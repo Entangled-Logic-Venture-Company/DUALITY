@@ -16,7 +16,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <Midl Include="Class.idl" />
     <Midl Include="HV3DEnvironment.idl">
       <Filter>idl</Filter>
     </Midl>

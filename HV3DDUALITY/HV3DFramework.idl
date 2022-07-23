@@ -1,23 +1,23 @@
 namespace HV3DDUALITY
 {
 	struct HV3DName {
-		String Name;
+		String s;
 	};
 
 	struct HV3DPath {
-		String Path;
+		String s;
 	};
 
 	struct HV3DFile {
-		String File;
+		String s;
 	};
 
 	struct HV3DDate {
-		String Date;
+		String s;
 	};
 
 	struct HV3DVersion {
-		String Version;
+		String s;
 	};
 
 	enum HV3DBasicError {
@@ -26,9 +26,9 @@ namespace HV3DDUALITY
 		HV3D_OUT_OF_MEM = 0x00000002,
 	};
 
-	struct HV3DActivationClassFactory {
-		String ActivatableClassId;
-		Guid iid;
+	struct HV3DActivationFactory {
+		HV3DName clsid;
+		HV3DPath dll;
 	};
 
 }

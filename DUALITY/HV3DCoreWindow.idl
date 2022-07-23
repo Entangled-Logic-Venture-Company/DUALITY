@@ -1,0 +1,10 @@
+namespace DUALITY
+{
+    [default_interface]
+    runtimeclass HV3DCoreWindow : Microsoft.UI.Xaml.Window
+    {
+        HV3DCoreWindow();
+
+    }
+
+}
