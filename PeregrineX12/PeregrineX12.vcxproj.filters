@@ -17,6 +17,9 @@
     <Filter Include="Header Library">
       <UniqueIdentifier>{21f4cac7-bf74-430f-8181-be02dff36156}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Shaders">
+      <UniqueIdentifier>{c2126647-a577-405d-b417-e04536be5eeb}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="$(GeneratedFilesDir)module.g.cpp">
@@ -47,5 +50,10 @@
     <ClInclude Include="d3dx12.h">
       <Filter>Project</Filter>
     </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <FxCompile Include="shaders.hlsl">
+      <Filter>Shaders</Filter>
+    </FxCompile>
   </ItemGroup>
 </Project>

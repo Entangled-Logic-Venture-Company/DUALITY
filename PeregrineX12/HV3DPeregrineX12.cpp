@@ -43,14 +43,16 @@ namespace winrt::PeregrineX12::implementation
 
 	void HV3DPeregrineX12::HV3DOnRender()
 	{
+		HRESULT hr = S_OK;
+
 		HV3DPopulateCommandList();
 		
 		*d3dCommandLists = d3dCommandList;
 		d3dCommandQueue->ExecuteCommandLists(
-			1, 
+			1,
 			d3dCommandLists);
 
-		dxgiSwapChain->Present(1, 0);
+		hr = dxgiSwapChain->Present(1, 0);
 
 		HV3DWaitForPreviousFrame();
 		
@@ -106,7 +108,7 @@ namespace winrt::PeregrineX12::implementation
 			&d3dQueueDesc,
 			__uuidof(ID3D12CommandQueue),
 			(void**)&d3dCommandQueue);
-		
+
 		IDXGISwapChain1** oSwapChain = new IDXGISwapChain1*();
 		hr = dxgiFactory->CreateSwapChainForComposition(
 			d3dCommandQueue,
@@ -147,7 +149,7 @@ namespace winrt::PeregrineX12::implementation
 
 			d3dDevice->CreateRenderTargetView(
 				d3dRenderTargets[n],
-				&d3dRenderTargetViewDescription,
+				nullptr,
 				oD3DXRTVHandle);
 			
 			oD3DXRTVHandle.Offset(
@@ -163,7 +165,7 @@ namespace winrt::PeregrineX12::implementation
 		d3dRTVHandle = oD3DXRTVHandle;
 
 		hr = d3dDevice->CreateCommandAllocator(
-			D3D12_COMMAND_LIST_TYPE_BUNDLE,
+			D3D12_COMMAND_LIST_TYPE_DIRECT,
 			__uuidof(ID3D12CommandAllocator),
 			(void**)&d3dCommandAllocator);
 
@@ -195,7 +197,7 @@ namespace winrt::PeregrineX12::implementation
 #endif
 
 			hr = D3DCompileFromFile(
-				L"shaders.hlsl", 
+				L"C:/Users/rebek/source/DUALITY/PeregrineX12/shaders.hlsl", 
 				nullptr, 
 				nullptr, 
 				"VSMain", 
@@ -206,7 +208,7 @@ namespace winrt::PeregrineX12::implementation
 				nullptr);
 			
 			hr = D3DCompileFromFile(
-				L"shaders.hlsl",
+				L"C:/Users/rebek/source/DUALITY/PeregrineX12/shaders.hlsl",
 				nullptr, 
 				nullptr, 
 				"PSMain", 
@@ -215,7 +217,8 @@ namespace winrt::PeregrineX12::implementation
 				0, 
 				&d3dPixelShader, 
 				nullptr);
-
+		
+		d3dPSODesc.pRootSignature = d3dRootSignature;
 		d3dPSODesc.VS = { reinterpret_cast<UINT8*>(d3dVertexShader->GetBufferPointer()), d3dVertexShader->GetBufferSize() };
 		d3dPSODesc.PS = { reinterpret_cast<UINT8*>(d3dPixelShader->GetBufferPointer()), d3dPixelShader->GetBufferSize() };
 		d3dPSODesc.DS = { nullptr };
@@ -228,8 +231,8 @@ namespace winrt::PeregrineX12::implementation
 			(void**)&d3dPipelineState);
 
 		hr = d3dDevice->CreateCommandList(
-			0, 
-			D3D12_COMMAND_LIST_TYPE_DIRECT, 
+			1, 
+			D3D12_COMMAND_LIST_TYPE_DIRECT,
 			d3dCommandAllocator, 
 			d3dPipelineState, 
 			__uuidof(ID3D12GraphicsCommandList5),
@@ -330,11 +333,7 @@ namespace winrt::PeregrineX12::implementation
 			frame_index, 
 			rtv_descriptor_size );
 		
-		d3dCommandList->OMSetRenderTargets(
-			1, 
-			&d3dRTVHandle, 
-			FALSE, 
-			nullptr );
+		d3dCommandList->OMSetRenderTargets(1, &d3dRTVHandle, FALSE, nullptr );
 
 		const float clearColor[] = { 0.0f, 0.2f, 0.4f, 1.0f };
 

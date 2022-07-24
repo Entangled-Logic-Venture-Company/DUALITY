@@ -81,9 +81,9 @@ namespace winrt::PeregrineX12::implementation
 
         ::ID3D12CommandQueue*                   d3dCommandQueue{ nullptr };
 
-        ::ID3D12GraphicsCommandList5*           d3dCommandList{ nullptr };
+        ::ID3D12CommandList**                   d3dCommandLists{ new ::ID3D12CommandList * () };
 
-        ::ID3D12CommandList**                   d3dCommandLists{ nullptr };
+        ::ID3D12GraphicsCommandList*            d3dCommandList{ nullptr };
 
         D3D12_HEAP_PROPERTIES                   d3dHeapProps{ CD3DX12_HEAP_PROPERTIES(D3D12_HEAP_TYPE_UPLOAD) };
 
@@ -104,8 +104,8 @@ namespace winrt::PeregrineX12::implementation
         dxgiSampleDescription.Quality   = 0};
         
         DXGI_SWAP_CHAIN_DESC1 dxgiSwapChainDesc{
-        dxgiSwapChainDesc.Width         = 500,
-        dxgiSwapChainDesc.Height        = 500,
+        dxgiSwapChainDesc.Width         = 1920,
+        dxgiSwapChainDesc.Height        = 1080,
         dxgiSwapChainDesc.Format        = DXGI_FORMAT_B8G8R8A8_UNORM,
         dxgiSwapChainDesc.Stereo        = false,
         dxgiSwapChainDesc.SampleDesc    = dxgiSampleDescription,
@@ -152,11 +152,11 @@ namespace winrt::PeregrineX12::implementation
         UINT64                      fence_value{ NULL };
 
         D3D12_ROOT_SIGNATURE_DESC d3dRootSignatureDesc{
-            d3dRootSignatureDesc.NumParameters          = 0,
-            d3dRootSignatureDesc.pParameters            = { nullptr },
-            d3dRootSignatureDesc.NumStaticSamplers      = 0,
-            d3dRootSignatureDesc.pStaticSamplers        = { nullptr },
-            d3dRootSignatureDesc.Flags                  = D3D12_ROOT_SIGNATURE_FLAG_ALLOW_INPUT_ASSEMBLER_INPUT_LAYOUT };
+        d3dRootSignatureDesc.NumParameters          = 0,
+        d3dRootSignatureDesc.pParameters            = { nullptr },
+        d3dRootSignatureDesc.NumStaticSamplers      = 0,
+        d3dRootSignatureDesc.pStaticSamplers        = { nullptr },
+        d3dRootSignatureDesc.Flags                  = D3D12_ROOT_SIGNATURE_FLAG_ALLOW_INPUT_ASSEMBLER_INPUT_LAYOUT };
 
         D3D12_INPUT_ELEMENT_DESC d3dInputElementDescs[2]
         {
@@ -203,14 +203,14 @@ namespace winrt::PeregrineX12::implementation
         d3dPSODesc.IBStripCutValue = D3D12_INDEX_BUFFER_STRIP_CUT_VALUE_DISABLED,
         d3dPSODesc.PrimitiveTopologyType = D3D12_PRIMITIVE_TOPOLOGY_TYPE_TRIANGLE,
         d3dPSODesc.NumRenderTargets = 1,
-        d3dPSODesc.RTVFormats[0] = DXGI_FORMAT_R8G8B8A8_UNORM,
-        d3dPSODesc.RTVFormats[1] = DXGI_FORMAT_R8G8B8A8_UNORM,
-        d3dPSODesc.RTVFormats[2] = DXGI_FORMAT_R8G8B8A8_UNORM,
-        d3dPSODesc.RTVFormats[3] = DXGI_FORMAT_R8G8B8A8_UNORM,
-        d3dPSODesc.RTVFormats[4] = DXGI_FORMAT_R8G8B8A8_UNORM,
-        d3dPSODesc.RTVFormats[5] = DXGI_FORMAT_R8G8B8A8_UNORM,
-        d3dPSODesc.RTVFormats[6] = DXGI_FORMAT_R8G8B8A8_UNORM,
-        d3dPSODesc.RTVFormats[7] = DXGI_FORMAT_R8G8B8A8_UNORM,
+        d3dPSODesc.RTVFormats[0] = DXGI_FORMAT_B8G8R8A8_UNORM,
+        d3dPSODesc.RTVFormats[1] = DXGI_FORMAT_UNKNOWN,
+        d3dPSODesc.RTVFormats[2] = DXGI_FORMAT_UNKNOWN,
+        d3dPSODesc.RTVFormats[3] = DXGI_FORMAT_UNKNOWN,
+        d3dPSODesc.RTVFormats[4] = DXGI_FORMAT_UNKNOWN,
+        d3dPSODesc.RTVFormats[5] = DXGI_FORMAT_UNKNOWN,
+        d3dPSODesc.RTVFormats[6] = DXGI_FORMAT_UNKNOWN,
+        d3dPSODesc.RTVFormats[7] = DXGI_FORMAT_UNKNOWN,
         d3dPSODesc.DSVFormat = DXGI_FORMAT_B8G8R8A8_UNORM,
         d3dPSODesc.SampleDesc = dxgiSampleDescription,
         d3dPSODesc.NodeMask = NULL,

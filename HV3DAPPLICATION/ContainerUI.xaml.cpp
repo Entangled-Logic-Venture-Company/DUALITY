@@ -49,6 +49,8 @@ namespace winrt::HV3DAPPLICATION::implementation
         oPipeline.get()->HV3DOnInit(
             winrt::detach_abi(ContainerView()));
 
+        oPipeline.get()->HV3DOnRender();
+
         oCOMActivationFactory.detach();
 
         WindowsDeleteString(hcname);
