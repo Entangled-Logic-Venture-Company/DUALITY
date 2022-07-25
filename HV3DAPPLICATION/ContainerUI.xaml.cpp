@@ -31,29 +31,46 @@ namespace winrt::HV3DAPPLICATION::implementation
         auto DllGetActivationFactory = reinterpret_cast<int32_t(__stdcall*)(void* classId, void** factory)>(pProc);
 
         static const WCHAR* cname = L"PeregrineX12.HV3DPeregrineX12";
-        const UINT32 cnamelen = wcslen(cname);
+        const UINT32 cnamelen = (UINT32)wcslen(cname);
 
         HSTRING hcname = NULL;
         HSTRING_HEADER header;
         HRESULT hr = WindowsCreateStringReference(cname, cnamelen, &header, &hcname);
+                
+        void** unkActivationFactory = new void*[1];
+        ret = (*DllGetActivationFactory)(&header, unkActivationFactory);
 
-        com_ptr< winrt::impl::abi_t<winrt::Windows::Foundation::IActivationFactory> > oCOMActivationFactory{ nullptr };
-        ret = (*DllGetActivationFactory)(&header, oCOMActivationFactory.put_void());
+        Windows::Foundation::IActivationFactory oActivationFactory{ nullptr };
+        winrt::copy_from_abi(oActivationFactory, *unkActivationFactory);
 
-        com_ptr< winrt::impl::abi_t<winrt::Windows::Foundation::IUnknown> > iObj{ nullptr };
-        ret = oCOMActivationFactory.get()->ActivateInstance(iObj.put_void());
+        HV3DPipeline = oActivationFactory.ActivateInstance<HV3DDUALITY::HV3DView::IHV3DPipeline>();
+        
+        HV3DPipeline.HV3DOnInit(
+            ContainerView() );
 
-        oPipeline = nullptr;
-        winrt::copy_from_abi(oPipeline, iObj.as<HV3DDUALITY::HV3DView::IHV3DPipeline>());
-
-        oPipeline.get()->HV3DOnInit(
-            winrt::detach_abi(ContainerView()));
-
-        oPipeline.get()->HV3DOnRender();
-
-        oCOMActivationFactory.detach();
+        RegisterTickEvent();
 
         WindowsDeleteString(hcname);
+
+    }
+
+    void ContainerUI::RegisterTickEvent()
+    {
+        oDispatchTimer = new Microsoft::UI::Xaml::DispatcherTimer[1];
+
+        oDispatchTimer->Interval(std::chrono::milliseconds{ 15 });
+
+        timer_event = oDispatchTimer->Tick({ this, &ContainerUI::OnTick });
+        
+        oDispatchTimer->Start();
+
+    }
+
+    void ContainerUI::OnTick(Windows::Foundation::IInspectable const&, Windows::Foundation::IInspectable const&)
+    {
+        HV3DPipeline.HV3DOnRender();
+
+        return;
 
     }
 

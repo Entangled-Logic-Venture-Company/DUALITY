@@ -360,7 +360,12 @@ int __stdcall wWinMain(HINSTANCE, HINSTANCE, PWSTR, int)
     if (!isRedirect)
     {
         ::winrt::Microsoft::UI::Xaml::Application::Start([](auto&&)
-            { ::winrt::make<::winrt::HV3DAPPLICATION::implementation::Container>(); });
+            { 
+                ::winrt::make<::winrt::HV3DAPPLICATION::implementation::Container>(); 
+            
+                return;
+            
+            });
 
     }
 
