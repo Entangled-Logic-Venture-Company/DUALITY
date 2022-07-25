@@ -2,6 +2,12 @@
 
 #include "HV3DPeregrineX12.g.h"
 
+struct Vertex {
+    DirectX::XMFLOAT3 position;
+
+    DirectX::XMFLOAT4 color;
+};
+
 namespace winrt::PeregrineX12::implementation
 {
     struct HV3DPeregrineX12 : HV3DPeregrineX12T<HV3DPeregrineX12>
@@ -16,14 +22,6 @@ namespace winrt::PeregrineX12::implementation
         virtual void HV3DOnRender();
 
         virtual void HV3DOnDestroy();
-
-    public:
-        struct Vertex{
-            DirectX::XMFLOAT3 position;
-
-            DirectX::XMFLOAT4 color; };
-
-        float aspect_ratio{ 1.7777f };
 
     private:
         D3D_FEATURE_LEVEL                               feature_level{ D3D_FEATURE_LEVEL_12_0 };

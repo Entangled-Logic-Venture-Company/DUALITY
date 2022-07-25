@@ -183,6 +183,7 @@ namespace winrt::PeregrineX12::implementation
 	bool bB = true;
 	static float B = 0.4f;
 
+	static float tri_time = 0.0f;
 
 	void HV3DPeregrineX12::HV3DLoadAssets()
 	{
@@ -251,13 +252,25 @@ namespace winrt::PeregrineX12::implementation
 			(void**)d3dCommandList);
 
 		hr = (*d3dCommandList)->Close();
-
+		/*
 		Vertex oTriangleVertices[] =
 		{
 			{ { 0.0f, 1.0f, 0.0f }, { 1.0f, 0.0f, 0.0f, 1.0f } },
 			{ { 1.0f, -1.0f, 0.0f }, { 0.0f, 1.0f, 0.0f, 1.0f } },
 			{ { -1.0f, -1.0f, 0.0f }, { 0.0f, 0.0f, 1.0f, 1.0f } }
-		};
+		};*/
+
+		tri_time += 0.01f;
+		Vertex oTriangleVertices[] = {
+		{ {+0.000f - 0.2f, 0.50f+0.2f, 0.0f}, {1.0f, 0.9f, 0.36f, 1.0f}},
+		{ {+0.216f - 0.2f, 0.00f+0.2f, 0.0f}, {1.0f, 0.9f, 0.36f, 1.0f} },
+		{ {-0.216f - 0.2f, 0.00f+0.2f, 0.0f}, {1.0f, 0.9f, 0.36f, 1.0f} },
+		{ {+0.216f - 0.2f, 0.00f+0.2f, 0.0f}, {1.0f, 0.9f, 0.36f, 1.0f}},
+		{ {+0.432f - 0.2f, -0.5f+0.2f, 0.0f}, {1.0f, 0.9f, 0.36f, 1.0f} },
+		{ {+0.000f - 0.2f, -0.5f+0.2f, 0.0f}, {1.0f, 0.9f, 0.36f, 1.0f} },
+		{ {-0.216f - 0.2f, 0.00f+0.2f, 0.0f}, {1.0f, 0.9f, 0.36f, 1.0f} },
+		{ {+0.000f - 0.2f, -0.5f+0.2f, 0.0f}, {1.0f, 0.9f, 0.36f, 1.0f} },
+		{ {-0.432f - 0.2f, -0.5f+0.2f, 0.0f}, {1.0f, 0.9f, 0.36f, 1.0f} } };
 
 		const UINT vertex_buffer_size = sizeof(oTriangleVertices);
 
@@ -395,7 +408,7 @@ namespace winrt::PeregrineX12::implementation
 		(*d3dCommandList)->ClearRenderTargetView(*d3dRTVHandle, clearColor, 0, nullptr);
 		(*d3dCommandList)->IASetPrimitiveTopology(D3D_PRIMITIVE_TOPOLOGY_TRIANGLELIST);
 		(*d3dCommandList)->IASetVertexBuffers(0, 1, &d3dVertexBufferView);
-		(*d3dCommandList)->DrawInstanced(3, 1, 0, 0);
+		(*d3dCommandList)->DrawInstanced(9, 1, 0, 0);
 
 		d3dResourceBarrier = CD3DX12_RESOURCE_BARRIER::Transition(
 			d3dRenderTargets[frame_index], 
