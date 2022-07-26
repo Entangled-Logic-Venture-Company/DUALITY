@@ -1,0 +1,10 @@
+namespace KernelsST
+{
+    [default_interface]
+    runtimeclass ContainerWindow : Microsoft.UI.Xaml.Window
+    {
+        ContainerWindow();
+
+    }
+
+}

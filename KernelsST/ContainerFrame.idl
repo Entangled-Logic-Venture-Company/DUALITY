@@ -1,0 +1,10 @@
+namespace KernelsST
+{
+    [default_interface]
+    runtimeclass ContainerFrame : Microsoft.UI.Xaml.Controls.Frame
+    {
+        ContainerFrame();
+
+    }
+
+}
