@@ -1,21 +1,23 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <ApplicationDefinition Include="App.xaml" />
+    <Midl Include="ContainerFrame.idl">
+      <Filter>Container</Filter>
+    </Midl>
+    <Midl Include="ContainerUI.idl">
+      <Filter>Container</Filter>
+    </Midl>
+    <Midl Include="ContainerWindow.idl">
+      <Filter>Container</Filter>
+    </Midl>
   </ItemGroup>
   <ItemGroup>
-    <Page Include="MainWindow.xaml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Midl Include="App.idl" />
-    <Midl Include="MainWindow.idl" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="pch.cpp" />
-    <ClCompile Include="$(GeneratedFilesDir)module.g.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="pch.h" />
+    <ClCompile Include="pch.cpp">
+      <Filter>Project</Filter>
+    </ClCompile>
+    <ClCompile Include="$(GeneratedFilesDir)module.g.cpp">
+      <Filter>Project</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Image Include="Assets\Wide310x150Logo.scale-200.png">
@@ -44,17 +46,48 @@
     <Filter Include="Assets">
       <UniqueIdentifier>{8ec79c7e-96e4-4e49-8e29-98cd09055ca0}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Container">
+      <UniqueIdentifier>{a2e9e019-c700-4379-9f08-efc345a5aa24}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Project">
+      <UniqueIdentifier>{dcdbb734-fc03-4862-8257-be750450ec0b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Runtime Class">
+      <UniqueIdentifier>{013af565-b0ac-4b4d-a605-8fde37ee520b}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <Text Include="readme.txt" />
+    <None Include="PropertySheet.props">
+      <Filter>Project</Filter>
+    </None>
+    <None Include="packages.config">
+      <Filter>Project</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
-    <Manifest Include="app.manifest" />
+    <ClInclude Include="pch.h">
+      <Filter>Project</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <AppxManifest Include="Package.appxmanifest" />
+    <Manifest Include="app.manifest">
+      <Filter>Project</Filter>
+    </Manifest>
   </ItemGroup>
   <ItemGroup>
-    <None Include="packages.config" />
+    <Page Include="ContainerFrame.xaml">
+      <Filter>Container</Filter>
+    </Page>
+    <Page Include="ContainerUI.xaml">
+      <Filter>Container</Filter>
+    </Page>
+    <Page Include="ContainerWindow.xaml">
+      <Filter>Container</Filter>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="Container.xaml">
+      <Filter>Container</Filter>
+    </ApplicationDefinition>
   </ItemGroup>
 </Project>

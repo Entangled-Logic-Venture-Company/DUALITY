@@ -105,7 +105,7 @@ namespace winrt::PeregrineX12::implementation
         DXGI_SWAP_CHAIN_DESC1 dxgiSwapChainDesc{
         dxgiSwapChainDesc.Width         = 1920,
         dxgiSwapChainDesc.Height        = 1080,
-        dxgiSwapChainDesc.Format        = DXGI_FORMAT_R8G8B8A8_UNORM,
+        dxgiSwapChainDesc.Format        = DXGI_FORMAT_B8G8R8A8_UNORM,
         dxgiSwapChainDesc.Stereo        = false,
         dxgiSwapChainDesc.SampleDesc    = dxgiSampleDescription,
         dxgiSwapChainDesc.BufferUsage   = DXGI_USAGE_RENDER_TARGET_OUTPUT,

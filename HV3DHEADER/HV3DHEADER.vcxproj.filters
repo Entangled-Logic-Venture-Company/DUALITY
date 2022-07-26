@@ -35,12 +35,10 @@
     <None Include="HV3DHEADER.def">
       <Filter>Project</Filter>
     </None>
-    <None Include="packages.config">
-      <Filter>Project</Filter>
-    </None>
     <None Include="PropertySheet.props">
       <Filter>Project</Filter>
     </None>
+    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h">

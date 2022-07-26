@@ -66,6 +66,9 @@
     <Filter Include="Container">
       <UniqueIdentifier>{bfc30bce-da01-4e02-99a0-59c3a9e55374}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Runtime Class">
+      <UniqueIdentifier>{e1d6730d-cf21-4f00-946d-267db3cd9f28}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Manifest Include="app.manifest">

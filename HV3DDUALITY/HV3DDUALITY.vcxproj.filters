@@ -8,9 +8,6 @@
     <Filter Include="Generated Files">
       <UniqueIdentifier>{926ab91d-31b4-48c3-b9a4-e681349f27f0}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Project">
-      <UniqueIdentifier>{64999342-2038-4d62-a9d5-3197f62af1d8}</UniqueIdentifier>
-    </Filter>
     <Filter Include="idl">
       <UniqueIdentifier>{f1f9d9b1-1d3a-4e32-8e0d-d890ef3aa5fd}</UniqueIdentifier>
     </Filter>
@@ -33,8 +30,6 @@
     </Midl>
   </ItemGroup>
   <ItemGroup>
-    <None Include="packages.config">
-      <Filter>Project</Filter>
-    </None>
+    <None Include="packages.config" />
   </ItemGroup>
 </Project>

@@ -1,0 +1,10 @@
+namespace RFiles
+{
+    [default_interface]
+    runtimeclass ContainerUI : Microsoft.UI.Xaml.Controls.Page
+    {
+        ContainerUI();
+
+    }
+
+}

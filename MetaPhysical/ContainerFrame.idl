@@ -1,0 +1,10 @@
+namespace MetaPhysical
+{
+    [default_interface]
+    runtimeclass ContainerFrame : Microsoft.UI.Xaml.Controls.Frame
+    {
+        ContainerFrame();
+
+    }
+
+}

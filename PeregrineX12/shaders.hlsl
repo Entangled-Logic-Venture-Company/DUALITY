@@ -15,6 +15,8 @@ struct PSInput
     float4 color : COLOR;
 };
 
+void main() {}
+
 PSInput VSMain(float4 position : POSITION, float4 color : COLOR)
 {
     PSInput result;
