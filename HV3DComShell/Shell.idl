@@ -1,0 +1,10 @@
+namespace HV3DComShell
+{
+    [default_interface]
+    runtimeclass Shell
+    {
+        Shell();
+
+    }
+
+}
