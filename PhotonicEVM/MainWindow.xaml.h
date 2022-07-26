@@ -2,7 +2,7 @@
 
 #include "MainWindow.g.h"
 
-namespace winrt::EMRadiation::implementation
+namespace winrt::PhotonicEVM::implementation
 {
     struct MainWindow : MainWindowT<MainWindow>
     {
@@ -15,7 +15,7 @@ namespace winrt::EMRadiation::implementation
     };
 }
 
-namespace winrt::EMRadiation::factory_implementation
+namespace winrt::PhotonicEVM::factory_implementation
 {
     struct MainWindow : MainWindowT<MainWindow, implementation::MainWindow>
     {

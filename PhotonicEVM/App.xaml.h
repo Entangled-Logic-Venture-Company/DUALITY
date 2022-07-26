@@ -2,7 +2,7 @@
 
 #include "App.xaml.g.h"
 
-namespace winrt::EMRadiation::implementation
+namespace winrt::PhotonicEVM::implementation
 {
     struct App : AppT<App>
     {

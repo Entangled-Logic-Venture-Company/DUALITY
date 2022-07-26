@@ -8,8 +8,8 @@ using namespace Windows::Foundation;
 using namespace Microsoft::UI::Xaml;
 using namespace Microsoft::UI::Xaml::Controls;
 using namespace Microsoft::UI::Xaml::Navigation;
-using namespace EMRadiation;
-using namespace EMRadiation::implementation;
+using namespace PhotonicEVM;
+using namespace PhotonicEVM::implementation;
 
 // To learn more about WinUI, the WinUI project structure,
 // and more about our project templates, see: http://aka.ms/winui-project-info.
