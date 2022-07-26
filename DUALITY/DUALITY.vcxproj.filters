@@ -83,7 +83,9 @@
     <None Include="PropertySheet.props">
       <Filter>Project</Filter>
     </None>
-    <None Include="packages.config" />
+    <None Include="packages.config">
+      <Filter>Project</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Page Include="HV3DCoreFrame.xaml">

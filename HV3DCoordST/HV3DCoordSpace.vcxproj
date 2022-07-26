@@ -8,8 +8,8 @@
     <CppWinRTRootNamespaceAutoMerge>true</CppWinRTRootNamespaceAutoMerge>
     <MinimalCoreWin>true</MinimalCoreWin>
     <ProjectGuid>{e31e5f00-0390-4e30-bdf7-a96620c91078}</ProjectGuid>
-    <ProjectName>HV3DCoordSpace</ProjectName>
-    <RootNamespace>HV3DCoordSpace</RootNamespace>
+    <ProjectName>HV3DCoordST</ProjectName>
+    <RootNamespace>HV3DCoordST</RootNamespace>
     <DefaultLanguage>en-US</DefaultLanguage>
     <MinimumVisualStudioVersion>16.0</MinimumVisualStudioVersion>
     <AppContainerApplication>true</AppContainerApplication>
@@ -87,7 +87,7 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateWindowsMetadata>true</GenerateWindowsMetadata>
-      <ModuleDefinitionFile>HV3DCoordSpace.def</ModuleDefinitionFile>
+      <ModuleDefinitionFile>HV3DCoordST.def</ModuleDefinitionFile>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)'=='Debug'">
@@ -105,32 +105,39 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="HV3DSharedMemmory.h">
+      <DependentUpon>HV3DSharedMemmory.cpp</DependentUpon>
+    </ClInclude>
     <ClInclude Include="pch.h" />
-    <ClInclude Include="Class.h">
-      <DependentUpon>Class.cpp</DependentUpon>
+    <ClInclude Include="HV3DResourceManager.h">
+      <DependentUpon>HV3DResourceManager.cpp</DependentUpon>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="HV3DFileFBX.cpp" />
+    <ClCompile Include="HV3DFileObj.cpp" />
+    <ClCompile Include="HV3DFileSTL.cpp" />
+    <ClCompile Include="HV3DSharedMemmory.cpp" />
+    <ClCompile Include="HV3DFileST.cpp" />
     <ClCompile Include="pch.cpp">
       <PrecompiledHeader>Create</PrecompiledHeader>
     </ClCompile>
-    <ClCompile Include="Class.cpp" />
+    <ClCompile Include="HV3DResourceManager.cpp" />
     <ClCompile Include="$(GeneratedFilesDir)module.g.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <Midl Include="Class.idl">
+    <Midl Include="HV3DResourceManager.idl">
       <SubType>Code</SubType>
-      <DependentUpon>Class.cpp</DependentUpon>
+      <DependentUpon>HV3DResourceManager.cpp</DependentUpon>
+    </Midl>
+    <Midl Include="HV3DSharedMemmory.idl">
+      <SubType>Code</SubType>
+      <DependentUpon>HV3DSharedMemmory.cpp</DependentUpon>
     </Midl>
   </ItemGroup>
   <ItemGroup>
     <None Include="HV3DCoordSpace.def" />
     <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <Text Include="readme.txt">
-      <DeploymentContent>false</DeploymentContent>
-    </Text>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

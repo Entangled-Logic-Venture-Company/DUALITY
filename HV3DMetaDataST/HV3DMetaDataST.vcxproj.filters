@@ -9,20 +9,20 @@
       <UniqueIdentifier>{926ab91d-31b4-48c3-b9a4-e681349f27f0}</UniqueIdentifier>
     </Filter>
     <Filter Include="Project">
-      <UniqueIdentifier>{35d6f3cf-8d35-40c2-a3b5-3a2a716c3e64}</UniqueIdentifier>
+      <UniqueIdentifier>{fac9edc3-b918-4226-abfc-68a9790b437a}</UniqueIdentifier>
     </Filter>
     <Filter Include="Runtime Class">
-      <UniqueIdentifier>{9eaeb806-7736-485a-af20-1988188dda9e}</UniqueIdentifier>
+      <UniqueIdentifier>{ab93ab03-7373-4476-b542-19a0158e29e7}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="HV3DCommandLine.cpp">
+    <ClCompile Include="HV3DTimeline.cpp">
       <Filter>Runtime Class</Filter>
     </ClCompile>
-    <ClCompile Include="pch.cpp">
+    <ClCompile Include="$(GeneratedFilesDir)module.g.cpp">
       <Filter>Project</Filter>
     </ClCompile>
-    <ClCompile Include="$(GeneratedFilesDir)module.g.cpp">
+    <ClCompile Include="pch.cpp">
       <Filter>Project</Filter>
     </ClCompile>
   </ItemGroup>
@@ -30,7 +30,7 @@
     <Midl Include="Class.idl" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="HV3DCmdShell.def">
+    <None Include="HV3DMetaDataST.def">
       <Filter>Project</Filter>
     </None>
     <None Include="packages.config">
