@@ -345,6 +345,8 @@ namespace winrt::HV3DCoordST::implementation
 
             oInputBuffer.push_back(oTriangleB);
 
+        }
+
         return;
 
     }
