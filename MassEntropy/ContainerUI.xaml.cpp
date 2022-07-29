@@ -4,7 +4,12 @@
 #include "ContainerUI.g.cpp"
 #endif
 
+using namespace std;
+
 using namespace winrt;
+
+using namespace winrt::Windows;
+using namespace winrt::Windows::Foundation;
 
 using namespace winrt::Microsoft::UI::Xaml;
 
@@ -20,37 +25,60 @@ namespace winrt::MassEntropy::implementation
 
     void winrt::MassEntropy::implementation::ContainerUI::Page_Loaded(winrt::Windows::Foundation::IInspectable const& sender, winrt::Microsoft::UI::Xaml::RoutedEventArgs const& e)
     {
-        int32_t ret = 0;
+        LoadShell();
 
-        void* dllHandle = WINRT_IMPL_LoadLibraryW(
-            L"C:/Users/rebek/source/DUALITY/x64/Debug/PeregrineX12/PeregrineX12.dll");
+        LoadInputBuffer();
 
-        if (!dllHandle) { throw; };
+        //LoadPipeline();
 
-        void* pProc = WINRT_IMPL_GetProcAddress(dllHandle, "DllGetActivationFactory");
-        auto DllGetActivationFactory = reinterpret_cast<int32_t(__stdcall*)(void* classId, void** factory)>(pProc);
+        return;
 
-        static const WCHAR* cname = L"PeregrineX12.HV3DPeregrineX12";
-        const UINT32 cnamelen = (UINT32)wcslen(cname);
+    }
 
-        HSTRING hcname = NULL;
-        HSTRING_HEADER header;
-        HRESULT hr = WindowsCreateStringReference(cname, cnamelen, &header, &hcname);
-                
-        void** unkActivationFactory = new void*[1];
-        ret = (*DllGetActivationFactory)(&header, unkActivationFactory);
+    void ContainerUI::LoadShell()
+    {
+        winrt::Windows::Foundation::IActivationFactory oActivationFactory =
+            HV3DHelpers::GetActivationFactory(
+                L"C:/Users/rebek/source/DUALITY/x64/Debug/HV3DCmdShell/HV3DCmdShell.dll",
+                L"HV3DCmdShell.HV3DCommandLine");
 
-        Windows::Foundation::IActivationFactory oActivationFactory{ nullptr };
-        winrt::copy_from_abi(oActivationFactory, *unkActivationFactory);
+        oCmdShell = oActivationFactory.ActivateInstance<HV3DDUALITY::HV3DEnvironment::IHV3DCmdShell>();
 
-        HV3DPipeline = oActivationFactory.ActivateInstance<HV3DDUALITY::HV3DView::IHV3DPipeline>();
+        oCmdShell.HV3DNewShell();
         
-        HV3DPipeline.HV3DOnInit(
-            ContainerView() );
+        return;
+
+    }
+
+    void ContainerUI::LoadInputBuffer()
+    {
+        winrt::Windows::Foundation::IActivationFactory oActivationFactory =
+            HV3DHelpers::GetActivationFactory(
+                L"C:/Users/rebek/source/DUALITY/x64/Debug/HV3DCoordST/HV3DCoordST.dll",
+                L"HV3DCoordST.HV3DResourceManager");
+
+        oInputBuffer = oActivationFactory.ActivateInstance<HV3DDUALITY::HV3DEnvironment::IHV3DInputBuffer>();
+
+        oInputBuffer.HV3DLoadInputBufferFromFile(L"");
+        
+        return;
+
+    }
+
+    void ContainerUI::LoadPipeline()
+    {
+        winrt::Windows::Foundation::IActivationFactory oObj =
+            HV3DHelpers::GetActivationFactory(
+                L"C:/Users/rebek/source/DUALITY/x64/Debug/PeregrineX12/PeregrineX12.dll",
+                L"PeregrineX12.HV3DPeregrineX12");
+
+        oPipeline = oObj.ActivateInstance<HV3DDUALITY::HV3DView::IHV3DPipeline>();
+
+        oPipeline.HV3DOnInit(ContainerView());
 
         RegisterTickEvent();
 
-        WindowsDeleteString(hcname);
+        return;
 
     }
 
@@ -68,7 +96,7 @@ namespace winrt::MassEntropy::implementation
 
     void ContainerUI::OnTick(Windows::Foundation::IInspectable const&, Windows::Foundation::IInspectable const&)
     {
-        HV3DPipeline.HV3DOnRender();
+        oPipeline.HV3DOnRender();
 
         return;
 

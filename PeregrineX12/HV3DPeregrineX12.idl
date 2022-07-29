@@ -1,7 +1,7 @@
 namespace PeregrineX12
 {
     [default_interface]
-    runtimeclass HV3DPeregrineX12 : HV3DDUALITY.HV3DView.IHV3DPipeline
+    runtimeclass HV3DPeregrineX12 : HV3DDUALITY.HV3DTensors.IHV3DPipeline
     {
         HV3DPeregrineX12();
 

@@ -27,13 +27,13 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <Midl Include="Class.idl" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="HV3DCmdShell.def">
       <Filter>Project</Filter>
     </None>
     <None Include="packages.config">
+      <Filter>Project</Filter>
+    </None>
+    <None Include="PropertySheet.props">
       <Filter>Project</Filter>
     </None>
   </ItemGroup>

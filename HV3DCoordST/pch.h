@@ -6,7 +6,10 @@
 #include <inspectable.h>
 #include <restrictederrorinfo.h>
 #include <hstring.h>
+
 #include <iostream>
+#include <fstream>
+#include <vector>
 
 #undef GetCurrentTime
 

@@ -1,21 +1,29 @@
 ﻿#pragma once
 
-#include "Class.g.h"
+#include "HV3DCommandLine.g.h"
 
 namespace winrt::HV3DCmdShell::implementation
 {
-    struct Class : ClassT<Class>
+    struct HV3DCommandLine : HV3DCommandLineT<HV3DCommandLine>
     {
-        Class() = default;
+    public:
+        HV3DCommandLine() = default;
 
-        int32_t MyProperty();
-        void MyProperty(int32_t value);
+        virtual void HV3DNewShell();
+
+    private:
+
+
+
     };
+
 }
 
 namespace winrt::HV3DCmdShell::factory_implementation
 {
-    struct Class : ClassT<Class, implementation::Class>
+    struct HV3DCommandLine : HV3DCommandLineT<HV3DCommandLine, implementation::HV3DCommandLine>
     {
+
     };
+
 }

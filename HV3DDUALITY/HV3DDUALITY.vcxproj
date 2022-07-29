@@ -109,7 +109,7 @@
     <Midl Include="HV3DFramework.idl" />
     <Midl Include="HV3DKeyboardBindings.idl" />
     <Midl Include="HV3DMouseBindings.idl" />
-    <Midl Include="HV3DView.idl" />
+    <Midl Include="HV3DTensors.idl" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

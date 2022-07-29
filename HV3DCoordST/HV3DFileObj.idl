@@ -1,0 +1,12 @@
+namespace HV3DCoordST
+{
+    [default_interface]
+    runtimeclass HV3DFileObj
+    {
+        HV3DFileObj();
+
+        void LoadMeshFromFile();
+
+    }
+
+}

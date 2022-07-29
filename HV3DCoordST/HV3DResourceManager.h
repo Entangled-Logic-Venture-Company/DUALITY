@@ -1,21 +1,31 @@
 ﻿#pragma once
 
-#include "Class.g.h"
+#include "HV3DFileObj.h"
 
-namespace winrt::HV3DCoordSpace::implementation
+#include "HV3DResourceManager.g.h"
+
+namespace winrt::HV3DCoordST::implementation
 {
-    struct Class : ClassT<Class>
+    struct HV3DResourceManager : HV3DResourceManagerT<HV3DResourceManager>
     {
-        Class() = default;
+    public:
+        HV3DResourceManager() = default;
 
-        int32_t MyProperty();
-        void MyProperty(int32_t value);
+        virtual void HV3DLoadInputBufferFromFile(winrt::hstring file);
+
+    private:
+        winrt::HV3DCoordST::HV3DFileObj oFileObj{ nullptr };
+
+
     };
+
 }
 
-namespace winrt::HV3DCoordSpace::factory_implementation
+namespace winrt::HV3DCoordST::factory_implementation
 {
-    struct Class : ClassT<Class, implementation::Class>
+    struct HV3DResourceManager : HV3DResourceManagerT<HV3DResourceManager, implementation::HV3DResourceManager>
     {
+
     };
+
 }

@@ -1,24 +1,25 @@
-import "HV3DView.idl";
+import "HV3DTensors.idl";
 import "HV3DKeyboardBindings.idl";
 import "HV3DMouseBindings.idl";
 
 namespace HV3DDUALITY.HV3DEnvironment {
+
 	struct HV3DEnvironmentCPU {
 		HV3DDUALITY.HV3DPath HV3DProject;
 		HV3DDUALITY.HV3DPath HV3DPlugin;
 	};
 
 	struct HV3DEnvironmentGPU {
-		HV3DDUALITY.HV3DView.HV3DRenderingEngine	re;
-		HV3DDUALITY.HV3DView.HV3DResolution			r;
-		HV3DDUALITY.HV3DView.HV3DAA					aa;
-		HV3DDUALITY.HV3DView.HV3DMultiSampling		ms;
-		HV3DDUALITY.HV3DView.HV3DSuperSampling		ss;
-		HV3DDUALITY.HV3DView.HV3DFilterMode			pm;
-		HV3DDUALITY.HV3DView.HV3DPixelFilter		pf;
-		HV3DDUALITY.HV3DView.HV3DGamma				g;
-		HV3DDUALITY.HV3DView.HV3DNearPlane			np;
-		HV3DDUALITY.HV3DView.HV3DFarPlane			fp;
+		HV3DDUALITY.HV3DTensors.HV3DRenderingEngine	re;
+		HV3DDUALITY.HV3DTensors.HV3DResolution			r;
+		HV3DDUALITY.HV3DTensors.HV3DAA					aa;
+		HV3DDUALITY.HV3DTensors.HV3DMultiSampling		ms;
+		HV3DDUALITY.HV3DTensors.HV3DSuperSampling		ss;
+		HV3DDUALITY.HV3DTensors.HV3DFilterMode			pm;
+		HV3DDUALITY.HV3DTensors.HV3DPixelFilter		pf;
+		HV3DDUALITY.HV3DTensors.HV3DGamma				g;
+		HV3DDUALITY.HV3DTensors.HV3DNearPlane			np;
+		HV3DDUALITY.HV3DTensors.HV3DFarPlane			fp;
 	};
 
 	struct HV3DEnvironmentBindings {
@@ -74,9 +75,17 @@ namespace HV3DDUALITY.HV3DEnvironment {
 
 	[uuid(B0344658-8549-4D45-8CBE-96A89144B1AB)]
 	[version(0x10000001)]
-	interface IHV3DShell : IInspectable
+	interface IHV3DCmdShell : IInspectable
 	{
 		void HV3DNewShell();
+
+	};
+
+	[uuid(31063F12-F1AF-40CA-AB35-1BBD50F09C04)]
+	[version(0x10000001)]
+	interface IHV3DInputBuffer : IInspectable
+	{
+		void HV3DLoadInputBufferFromFile(String file);
 
 	};
 

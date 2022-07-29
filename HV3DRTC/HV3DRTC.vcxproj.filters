@@ -8,28 +8,23 @@
     <Filter Include="Generated Files">
       <UniqueIdentifier>{926ab91d-31b4-48c3-b9a4-e681349f27f0}</UniqueIdentifier>
     </Filter>
-    <Filter Include="idl">
-      <UniqueIdentifier>{f1f9d9b1-1d3a-4e32-8e0d-d890ef3aa5fd}</UniqueIdentifier>
-    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <Midl Include="HV3DEnvironment.idl">
-      <Filter>idl</Filter>
-    </Midl>
-    <Midl Include="HV3DFramework.idl">
-      <Filter>idl</Filter>
-    </Midl>
-    <Midl Include="HV3DKeyboardBindings.idl">
-      <Filter>idl</Filter>
-    </Midl>
-    <Midl Include="HV3DMouseBindings.idl">
-      <Filter>idl</Filter>
-    </Midl>
-    <Midl Include="HV3DTensors.idl">
-      <Filter>idl</Filter>
-    </Midl>
+    <ClCompile Include="pch.cpp" />
+    <ClCompile Include="QuickReplace.cpp" />
+    <ClCompile Include="$(GeneratedFilesDir)module.g.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="pch.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Midl Include="Class.idl" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="HV3DRTC.def" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="readme.txt" />
   </ItemGroup>
 </Project>

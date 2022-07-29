@@ -1,9 +1,10 @@
 namespace HV3DCmdShell
 {
     [default_interface]
-    runtimeclass Class
+    runtimeclass HV3DCommandLine : HV3DDUALITY.HV3DEnvironment.IHV3DCmdShell
     {
-        Class();
-        Int32 MyProperty;
+        HV3DCommandLine();
+
     }
+
 }

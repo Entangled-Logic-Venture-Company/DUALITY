@@ -70,6 +70,9 @@ namespace winrt::HV3DCoordST::implementation
 
             case 'o':
                 obj_object += 1;
+                oVertexCoordList.push_back(vector<HV3DVertexCoord>{});
+                oTextCoordList.push_back(vector<HV3DTextCoord>{});
+                oVertexNormalList.push_back(vector<HV3DVertexNormal>{});
                 break;
 
             case 'l':
@@ -146,7 +149,7 @@ namespace winrt::HV3DCoordST::implementation
         oVertexCoord.y = yval;
         oVertexCoord.z = zval;
 
-        oVertexCoordList.push_back(oVertexCoord);
+        oVertexCoordList.at(obj_object).push_back(oVertexCoord);
 
         return;
 
@@ -171,7 +174,7 @@ namespace winrt::HV3DCoordST::implementation
         oTextCoord.u = uval;
         oTextCoord.v = vval;
 
-        oTextCoordList.push_back(oTextCoord);
+        oTextCoordList.at(obj_object).push_back(oTextCoord);
 
         return;
 
@@ -204,7 +207,7 @@ namespace winrt::HV3DCoordST::implementation
         oVertexNormal.b = bval;
         oVertexNormal.c = cval;
 
-        oVertexNormalList.push_back(oVertexNormal);
+        oVertexNormalList.at(obj_object).push_back(oVertexNormal);
 
         return;
 
@@ -300,16 +303,25 @@ namespace winrt::HV3DCoordST::implementation
 
         normal_vectorC = stoi(nl3);
 
+        std::vector<HV3DDUALITY::HV3DTensors::HV3DVertexCoord> oObjVertexCoordList{};
+        oObjVertexCoordList = oVertexCoordList.at(obj_object);
+
+        std::vector<HV3DDUALITY::HV3DTensors::HV3DTextCoord> oObjTextCoordList{};
+        oObjTextCoordList = oTextCoordList.at(obj_object);
+
+        std::vector<HV3DDUALITY::HV3DTensors::HV3DVertexNormal> oObjVertexNormalList{};
+        oObjVertexNormalList = oVertexNormalList.at(obj_object);
+
         HV3DTriangle oTriangleA;
-        oTriangleA.vert1.vcoord = oVertexCoordList.at(vertex_coordA - 1);
-        oTriangleA.vert1.tcoord = oTextCoordList.at(text_coordA - 1);
-        oTriangleA.vert1.normal = oVertexNormalList.at(normal_vectorA - 1);
-        oTriangleA.vert2.vcoord = oVertexCoordList.at(vertex_coordB - 1);
-        oTriangleA.vert2.tcoord = oTextCoordList.at(text_coordB - 1);
-        oTriangleA.vert2.normal = oVertexNormalList.at(normal_vectorB - 1);
-        oTriangleA.vert3.vcoord = oVertexCoordList.at(vertex_coordC - 1);
-        oTriangleA.vert3.tcoord = oTextCoordList.at(text_coordC - 1);
-        oTriangleA.vert3.normal = oVertexNormalList.at(normal_vectorC - 1);
+        oTriangleA.vert1.vcoord = oObjVertexCoordList.at(vertex_coordA - 1);
+        oTriangleA.vert1.tcoord = oObjTextCoordList.at(text_coordA - 1);
+        oTriangleA.vert1.normal = oObjVertexNormalList.at(normal_vectorA - 1);
+        oTriangleA.vert2.vcoord = oObjVertexCoordList.at(vertex_coordB - 1);
+        oTriangleA.vert2.tcoord = oObjTextCoordList.at(text_coordB - 1);
+        oTriangleA.vert2.normal = oObjVertexNormalList.at(normal_vectorB - 1);
+        oTriangleA.vert3.vcoord = oObjVertexCoordList.at(vertex_coordC - 1);
+        oTriangleA.vert3.tcoord = oObjTextCoordList.at(text_coordC - 1);
+        oTriangleA.vert3.normal = oObjVertexNormalList.at(normal_vectorC - 1);
 
         oInputBuffer.push_back(oTriangleA);
 
@@ -333,17 +345,19 @@ namespace winrt::HV3DCoordST::implementation
             normal_vectorD = stoi(nl4);
 
             HV3DTriangle oTriangleB;
-            oTriangleB.vert1.vcoord = oVertexCoordList.at(vertex_coordC - 1);
-            oTriangleB.vert1.tcoord = oTextCoordList.at(text_coordC - 1);
-            oTriangleB.vert1.normal = oVertexNormalList.at(normal_vectorC - 1);
-            oTriangleB.vert2.vcoord = oVertexCoordList.at(vertex_coordD - 1);
-            oTriangleB.vert2.tcoord = oTextCoordList.at(text_coordD - 1);
-            oTriangleB.vert2.normal = oVertexNormalList.at(normal_vectorD - 1);
-            oTriangleB.vert3.vcoord = oVertexCoordList.at(vertex_coordB - 1);
-            oTriangleB.vert3.tcoord = oTextCoordList.at(text_coordB - 1);
-            oTriangleB.vert3.normal = oVertexNormalList.at(normal_vectorB - 1);
+            oTriangleB.vert1.vcoord = oVertexCoordList.at(obj_object).at(vertex_coordC - 1);
+            oTriangleB.vert1.tcoord = oTextCoordList.at(obj_object).at(text_coordC - 1);
+            oTriangleB.vert1.normal = oVertexNormalList.at(obj_object).at(normal_vectorC - 1);
+            oTriangleB.vert2.vcoord = oVertexCoordList.at(obj_object).at(vertex_coordD - 1);
+            oTriangleB.vert2.tcoord = oTextCoordList.at(obj_object).at(text_coordD - 1);
+            oTriangleB.vert2.normal = oVertexNormalList.at(obj_object).at(normal_vectorD - 1);
+            oTriangleB.vert3.vcoord = oVertexCoordList.at(obj_object).at(vertex_coordB - 1);
+            oTriangleB.vert3.tcoord = oTextCoordList.at(obj_object).at(text_coordB - 1);
+            oTriangleB.vert3.normal = oVertexNormalList.at(obj_object).at(normal_vectorB - 1);
 
             oInputBuffer.push_back(oTriangleB);
+
+        }
 
         return;
 

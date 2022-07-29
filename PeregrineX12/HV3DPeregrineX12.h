@@ -155,17 +155,16 @@ namespace winrt::PeregrineX12::implementation
         UINT64                      fence_value{ NULL };
 
         D3D12_ROOT_SIGNATURE_DESC d3dRootSignatureDesc{
-        d3dRootSignatureDesc.NumParameters          = 0,
-        d3dRootSignatureDesc.pParameters            = { nullptr },
-        d3dRootSignatureDesc.NumStaticSamplers      = 0,
-        d3dRootSignatureDesc.pStaticSamplers        = { nullptr },
-        d3dRootSignatureDesc.Flags                  = D3D12_ROOT_SIGNATURE_FLAG_ALLOW_INPUT_ASSEMBLER_INPUT_LAYOUT };
+            d3dRootSignatureDesc.NumParameters          = 0,
+            d3dRootSignatureDesc.pParameters            = { nullptr },
+            d3dRootSignatureDesc.NumStaticSamplers      = 0,
+            d3dRootSignatureDesc.pStaticSamplers        = { nullptr },
+            d3dRootSignatureDesc.Flags                  = D3D12_ROOT_SIGNATURE_FLAG_ALLOW_INPUT_ASSEMBLER_INPUT_LAYOUT };
 
-        D3D12_INPUT_ELEMENT_DESC d3dInputElementDescs[2]
-        {
+        D3D12_INPUT_ELEMENT_DESC d3dStandardVertex[3]{
             { "POSITION", 0, DXGI_FORMAT_R32G32B32_FLOAT, 0, 0, D3D12_INPUT_CLASSIFICATION_PER_VERTEX_DATA, 0 },
-            { "COLOR", 0, DXGI_FORMAT_R32G32B32A32_FLOAT, 0, 12, D3D12_INPUT_CLASSIFICATION_PER_VERTEX_DATA, 0 }
-        };
+            { "TEXCOORD", 0, DXGI_FORMAT_R32G32_FLOAT, 0, 12, D3D12_INPUT_CLASSIFICATION_PER_VERTEX_DATA, 0 },
+            { "NORMAL", 0, DXGI_FORMAT_R32G32B32_FLOAT, 0, 20, D3D12_INPUT_CLASSIFICATION_PER_VERTEX_DATA, 0 } };
 
         D3D12_STREAM_OUTPUT_DESC d3dStreamOutputDesc{
             d3dStreamOutputDesc.pSODeclaration  = { nullptr },

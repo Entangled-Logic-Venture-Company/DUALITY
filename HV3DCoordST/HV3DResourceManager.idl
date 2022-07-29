@@ -1,9 +1,10 @@
-namespace HV3DCoordSpace
+namespace HV3DCoordST
 {
     [default_interface]
-    runtimeclass Class
+    runtimeclass HV3DResourceManager : HV3DDUALITY.HV3DEnvironment.IHV3DInputBuffer
     {
-        Class();
-        Int32 MyProperty;
+        HV3DResourceManager();
+
     }
+
 }

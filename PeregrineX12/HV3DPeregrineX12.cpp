@@ -236,7 +236,7 @@ namespace winrt::PeregrineX12::implementation
 		d3dPSODesc.DS = { nullptr };
 		d3dPSODesc.HS = { nullptr };
 		d3dPSODesc.GS = { nullptr };
-		d3dPSODesc.InputLayout = { d3dInputElementDescs, _countof(d3dInputElementDescs) };
+		d3dPSODesc.InputLayout = { d3dStandardVertex, _countof(d3dStandardVertex) };
 
 		hr = (*d3dDevice9)->CreateGraphicsPipelineState(
 			&d3dPSODesc, 

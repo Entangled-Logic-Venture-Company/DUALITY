@@ -32,6 +32,9 @@
     <ClCompile Include="pch.cpp">
       <Filter>Projects</Filter>
     </ClCompile>
+    <ClCompile Include="ActivationFactory.cpp">
+      <Filter>Container\Helper</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Image Include="Assets\Wide310x150Logo.scale-200.png">
@@ -69,6 +72,9 @@
     <Filter Include="Runtime Class">
       <UniqueIdentifier>{e1d6730d-cf21-4f00-946d-267db3cd9f28}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Container\Helper">
+      <UniqueIdentifier>{eda960a6-6ef4-44d9-b124-34a8a0e403e0}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Manifest Include="app.manifest">
@@ -86,6 +92,9 @@
   <ItemGroup>
     <ClInclude Include="pch.h">
       <Filter>Projects</Filter>
+    </ClInclude>
+    <ClInclude Include="ActivationClass.h">
+      <Filter>Container\Helper</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

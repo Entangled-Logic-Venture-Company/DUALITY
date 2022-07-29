@@ -1,0 +1,10 @@
+namespace HV3DCoordST
+{
+    [default_interface]
+    runtimeclass HV3DSharedMemory
+    {
+        HV3DSharedMemory();
+
+    }
+
+}

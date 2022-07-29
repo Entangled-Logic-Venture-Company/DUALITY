@@ -1,0 +1,10 @@
+namespace Namespace
+{
+    [default_interface]
+    runtimeclass QuickReplace
+    {
+        QuickReplace();
+
+    }
+
+}

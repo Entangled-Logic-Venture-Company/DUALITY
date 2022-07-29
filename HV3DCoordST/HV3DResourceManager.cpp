@@ -1,21 +1,31 @@
 ﻿#include "pch.h"
-#include "Class.h"
-#if __has_include("Class.g.cpp")
-#include "Class.g.cpp"
+#include "HV3DResourceManager.h"
+#if __has_include("HV3DResourceManager.g.cpp")
+#include "HV3DResourceManager.g.cpp"
 #endif
 
-// To learn more about WinUI, the WinUI project structure,
-// and more about our project templates, see: http://aka.ms/winui-project-info.
 
-namespace winrt::HV3DCoordSpace::implementation
+using namespace std;
+
+using namespace winrt;
+
+using namespace winrt::Windows;
+using namespace winrt::Windows::Foundation;
+
+using namespace winrt::Microsoft::UI::Xaml;
+
+namespace winrt::HV3DCoordST::implementation
 {
-    int32_t Class::MyProperty()
-    {
-        throw hresult_not_implemented();
-    }
+	void HV3DResourceManager::HV3DLoadInputBufferFromFile(hstring file)
+	{
+		oFileObj = make<HV3DFileObj>();
+			
+		oFileObj.LoadMeshFromFile();
 
-    void Class::MyProperty(int32_t /* value */)
-    {
-        throw hresult_not_implemented();
-    }
+
+
+		return;
+
+	}
+	
 }
