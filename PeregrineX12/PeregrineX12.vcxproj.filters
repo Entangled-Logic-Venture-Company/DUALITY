@@ -20,6 +20,9 @@
     <Filter Include="Shaders">
       <UniqueIdentifier>{c2126647-a577-405d-b417-e04536be5eeb}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Helpers">
+      <UniqueIdentifier>{64c82864-9de8-4df9-aed1-e81dd728f916}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="$(GeneratedFilesDir)module.g.cpp">
@@ -30,6 +33,9 @@
     </ClCompile>
     <ClCompile Include="HV3DPeregrineX12.cpp">
       <Filter>Runtime Class</Filter>
+    </ClCompile>
+    <ClCompile Include="HV3DObjLoader.cpp">
+      <Filter>Helpers</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -50,5 +56,13 @@
     <ClInclude Include="d3dx12.h">
       <Filter>Project</Filter>
     </ClInclude>
+    <ClInclude Include="HV3DObjLoader.h">
+      <Filter>Helpers</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Midl Include="HV3DObjLoader.idl">
+      <Filter>Helpers</Filter>
+    </Midl>
   </ItemGroup>
 </Project>

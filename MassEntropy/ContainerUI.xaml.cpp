@@ -25,11 +25,11 @@ namespace winrt::MassEntropy::implementation
 
     void winrt::MassEntropy::implementation::ContainerUI::Page_Loaded(winrt::Windows::Foundation::IInspectable const& sender, winrt::Microsoft::UI::Xaml::RoutedEventArgs const& e)
     {
-        LoadShell();
+        //LoadShell();
 
-        LoadInputBuffer();
+        //LoadInputBuffer();
 
-        //LoadPipeline();
+        LoadPipeline();
 
         return;
 
@@ -72,7 +72,7 @@ namespace winrt::MassEntropy::implementation
                 L"C:/Users/rebek/source/DUALITY/x64/Debug/PeregrineX12/PeregrineX12.dll",
                 L"PeregrineX12.HV3DPeregrineX12");
 
-        oPipeline = oObj.ActivateInstance<HV3DDUALITY::HV3DView::IHV3DPipeline>();
+        oPipeline = oObj.ActivateInstance<HV3DDUALITY::HV3DTensors::IHV3DPipeline>();
 
         oPipeline.HV3DOnInit(ContainerView());
 

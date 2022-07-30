@@ -128,6 +128,9 @@
     <ClInclude Include="HV3DPeregrineX12.h">
       <DependentUpon>HV3DPeregrineX12.cpp</DependentUpon>
     </ClInclude>
+    <ClInclude Include="HV3DObjLoader.h">
+		<DependentUpon>HV3DObjLoader.cpp</DependentUpon>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="pch.cpp">
@@ -135,11 +138,16 @@
     </ClCompile>
     <ClCompile Include="HV3DPeregrineX12.cpp" />
     <ClCompile Include="$(GeneratedFilesDir)module.g.cpp" />
+	<ClCompile Include="HV3DObjLoader.cpp"/>
   </ItemGroup>
   <ItemGroup>
     <Midl Include="HV3DPeregrineX12.idl">
       <SubType>Code</SubType>
       <DependentUpon>HV3DPeregrineX12.cpp</DependentUpon>
+    </Midl>
+    <Midl Include="HV3DObjLoader.idl">
+	  <DependentUpon>HV3DObjLoader.cpp</DependentUpon>
+      <SubType>Code</SubType>
     </Midl>
   </ItemGroup>
   <ItemGroup>

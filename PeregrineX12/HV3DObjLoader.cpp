@@ -1,28 +1,31 @@
 ﻿#include "pch.h"
-#include "HV3DFileObj.h"
-#if __has_include("HV3DFileObj.g.cpp")
-#include "HV3DFileObj.g.cpp"
+#include "HV3DObjLoader.h"
+#if __has_include("HV3DLoaders.HV3DObjLoader.g.cpp")
+#include "HV3DLoaders.HV3DObjLoader.g.cpp"
 #endif
 
 using namespace std;
 
 using namespace winrt;
 
+using namespace winrt::Windows::Foundation;
 using namespace winrt::Windows::Foundation::Collections;
+
+using namespace winrt::Windows::Storage;
 
 using namespace winrt::HV3DDUALITY;
 using namespace winrt::HV3DDUALITY::HV3DTensors;
 
-namespace winrt::HV3DCoordST::implementation
+namespace winrt::HV3DLoaders::implementation
 {
-    IVector<HV3DTriangle> HV3DFileObj::LoadMeshFromFile(hstring file)
+    IVector<HV3DTriangle> HV3DObjLoader::LoadMeshFromFile(hstring file)
     {
         string line;
 
         IVector<hstring> oFileBuffer = ReadFromObjAsync(std::wstring{ file });
 
         wofstream* oDebuggerFile = new wofstream[1];
-
+            
         CreateDebugFileAsync(&oDebuggerFile, L"C:\\Users\\rebek\\Source\\DUALITY\\Debug.txt");
 
         for (UINT i = 0; i < oFileBuffer.Size(); i++)
@@ -85,7 +88,7 @@ namespace winrt::HV3DCoordST::implementation
 
     }
 
-    void HV3DFileObj::ExtractVertexFromLine(wstring l)
+    void HV3DObjLoader::ExtractVertexFromLine(wstring l)
     {
         float xval = 0.0f;
         float yval = 0.0f;
@@ -118,7 +121,7 @@ namespace winrt::HV3DCoordST::implementation
 
     }
 
-    void HV3DFileObj::ExtractTextCoordFromLine(wstring l)
+    void HV3DObjLoader::ExtractTextCoordFromLine(wstring l)
     {
         float uval = 0.0f;
         float vval = 0.0f;
@@ -143,7 +146,7 @@ namespace winrt::HV3DCoordST::implementation
 
     }
 
-    void HV3DFileObj::ExtractVertexNormalFromLine(wstring l)
+    void HV3DObjLoader::ExtractVertexNormalFromLine(wstring l)
     {
         float aval = 0.0f;
         float bval = 0.0f;
@@ -176,7 +179,7 @@ namespace winrt::HV3DCoordST::implementation
 
     }
 
-    void HV3DFileObj::MakeFaces(wstring l)
+    void HV3DObjLoader::MakeFaces(wstring l)
     {
         size_t pos1{ 0 };
         size_t pos2{ 0 };
@@ -324,7 +327,7 @@ namespace winrt::HV3DCoordST::implementation
             text_coordD = stoi(tl4.substr(0, div2 - 1));
 
             normal_vectorD = stoi(nl4);
-
+            
             HV3DTriangle oTriangleA;
             oTriangleA.vert1.vcoord = oVertexCoordList.at(vertex_coordA - 1);
             oTriangleA.vert1.tcoord = oTextCoordList.at(text_coordA - 1);
@@ -357,7 +360,7 @@ namespace winrt::HV3DCoordST::implementation
 
     }
 
-    IVector<hstring> HV3DFileObj::ReadFromObjAsync(wstring file)
+    IVector<hstring> HV3DObjLoader::ReadFromObjAsync(wstring file)
     {
         IVector<hstring> oFile{ winrt::single_threaded_vector<hstring>() };
 
@@ -374,7 +377,7 @@ namespace winrt::HV3DCoordST::implementation
 
     }
 
-    void HV3DFileObj::CreateDebugFileAsync(std::wofstream** buffer, wstring file)
+    void HV3DObjLoader::CreateDebugFileAsync(std::wofstream** buffer, wstring file)
     {
         *buffer = new wofstream();
 
@@ -390,7 +393,7 @@ namespace winrt::HV3DCoordST::implementation
 
     }
 
-    void HV3DFileObj::WriteDebugFileAsync(wofstream** out, wstring line)
+    void HV3DObjLoader::WriteDebugFileAsync(wofstream** out, wstring line)
     {
         (*out)->write(line.c_str(), line.size());
 

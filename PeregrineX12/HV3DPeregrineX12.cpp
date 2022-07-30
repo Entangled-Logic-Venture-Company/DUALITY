@@ -9,8 +9,12 @@ using namespace DirectX;
 using namespace winrt;
 
 using namespace winrt::Windows::Foundation;
+using namespace winrt::Windows::Foundation::Collections;
 
 using namespace winrt::Microsoft::UI::Xaml;
+
+using namespace winrt::HV3DDUALITY;
+using namespace winrt::HV3DDUALITY::HV3DTensors;
 
 namespace winrt::PeregrineX12::implementation
 {
@@ -174,6 +178,10 @@ namespace winrt::PeregrineX12::implementation
 
 	}
 
+	IVector<HV3DDUALITY::HV3DTensors::HV3DTriangle> oInputBuffer{};
+
+	UINT vertex_buffer_size{ 0 };
+
 	bool bR = true;
 	static float R = 0.0f;
 
@@ -209,7 +217,7 @@ namespace winrt::PeregrineX12::implementation
 			(void**)d3dRootSignature);
 
 		hr = D3DCompileFromFile(
-			L"C:/Users/rebek/source/DUALITY/PeregrineX12/shaders.hlsl", 
+			L"C:\\Users\\rebek\\source\\DUALITY\\PeregrineX12\\shaders.hlsl", 
 			nullptr, 
 			nullptr, 
 			"VSMain", 
@@ -220,7 +228,7 @@ namespace winrt::PeregrineX12::implementation
 			d3dVertexError);
 		
 		hr = D3DCompileFromFile(
-			L"C:/Users/rebek/source/DUALITY/PeregrineX12/shaders.hlsl",
+			L"C:\\Users\\rebek\\source\\DUALITY\\PeregrineX12\\shaders.hlsl",
 			nullptr, 
 			nullptr, 
 			"PSMain", 
@@ -252,39 +260,20 @@ namespace winrt::PeregrineX12::implementation
 			(void**)d3dCommandList);
 
 		hr = (*d3dCommandList)->Close();
-		/*
-		Vertex oTriangleVertices[] =
-		{
-			{ { 0.0f, 1.0f, 0.0f }, { 1.0f, 0.0f, 0.0f, 1.0f } },
-			{ { 1.0f, -1.0f, 0.0f }, { 0.0f, 1.0f, 0.0f, 1.0f } },
-			{ { -1.0f, -1.0f, 0.0f }, { 0.0f, 0.0f, 1.0f, 1.0f } }
-		};*/
 
-		tri_time += 0.01f;
-		Vertex oTriangleVertices[] = {
-		{ {+0.000f - 0.2f, 0.50f+0.2f, 0.0f}, {1.0f, 0.9f, 0.36f, 1.0f}},
-		{ {+0.216f - 0.2f, 0.00f+0.2f, 0.0f}, {1.0f, 0.9f, 0.36f, 1.0f} },
-		{ {-0.216f - 0.2f, 0.00f+0.2f, 0.0f}, {1.0f, 0.9f, 0.36f, 1.0f} },
-		{ {+0.216f - 0.2f, 0.00f+0.2f, 0.0f}, {1.0f, 0.9f, 0.36f, 1.0f}},
-		{ {+0.432f - 0.2f, -0.5f+0.2f, 0.0f}, {1.0f, 0.9f, 0.36f, 1.0f} },
-		{ {+0.000f - 0.2f, -0.5f+0.2f, 0.0f}, {1.0f, 0.9f, 0.36f, 1.0f} },
-		{ {-0.216f - 0.2f, 0.00f+0.2f, 0.0f}, {1.0f, 0.9f, 0.36f, 1.0f} },
-		{ {+0.000f - 0.2f, -0.5f+0.2f, 0.0f}, {1.0f, 0.9f, 0.36f, 1.0f} },
-		{ {-0.432f - 0.2f, -0.5f+0.2f, 0.0f}, {1.0f, 0.9f, 0.36f, 1.0f} } };
+		HV3DLoaders::HV3DObjLoader oLoader{};		
+		oInputBuffer = oLoader.LoadMeshFromFile(L"C:\\Users\\rebek\\ARCHIVE\\test.obj");
 
-		const UINT vertex_buffer_size = sizeof(oTriangleVertices);
+		vertex_buffer_size = oInputBuffer.Size()*sizeof(HV3DTriangle);
 
-		// Note: using upload heaps to transfer static data like vert buffers is not 
-		// recommended. Every time the GPU needs it, the upload heap will be marshalled 
-		// over. Please read up on Default Heap usage. An upload heap is used here for 
-		// code simplicity and because there are very few verts to actually transfer.
-				
 		d3dResourceDesc = CD3DX12_RESOURCE_DESC::Buffer(vertex_buffer_size);
 
+		d3dHeapProps = CD3DX12_HEAP_PROPERTIES(D3D12_HEAP_TYPE_UPLOAD); //don't use this type use default
+
 		hr = (*d3dDevice9)->CreateCommittedResource(
-			&CD3DX12_HEAP_PROPERTIES(D3D12_HEAP_TYPE_UPLOAD),//&d3dHeapProps,
+			&d3dHeapProps,
 			D3D12_HEAP_FLAG_NONE,
-			&CD3DX12_RESOURCE_DESC::Buffer(vertex_buffer_size), //&d3dResourceDesc,
+			&d3dResourceDesc,
 			D3D12_RESOURCE_STATE_GENERIC_READ,
 			nullptr,
 			__uuidof(ID3D12Resource),
@@ -292,19 +281,27 @@ namespace winrt::PeregrineX12::implementation
 
 		UINT8* vertex_data_begin;
 		
-		CD3DX12_RANGE readRange(0, 0);        // We do not intend to read from this resource on the CPU.
+		CD3DX12_RANGE readRange(0, 0); // We do not intend to read from this resource on the CPU.
 		
 		hr = (*d3dVertexBuffer)->Map(
 			0, 
 			&readRange, 
 			(void**)&vertex_data_begin);
-		
-		memcpy(vertex_data_begin, oTriangleVertices, sizeof(oTriangleVertices));
+
+		HV3DTriangle* mem = (HV3DTriangle*)vertex_data_begin;
+
+		for (UINT i = 0; i < oInputBuffer.Size(); i++)
+		{
+			mem[i] = oInputBuffer.GetAt(i);
+
+		}
+
+		//memcpy(vertex_data_begin, &oInputBuffer.GetAt(0), vertex_buffer_size);
 		
 		(*d3dVertexBuffer)->Unmap(0, nullptr);
 
 		d3dVertexBufferView.BufferLocation = (*d3dVertexBuffer)->GetGPUVirtualAddress();
-		d3dVertexBufferView.StrideInBytes = sizeof(Vertex);
+		d3dVertexBufferView.StrideInBytes = sizeof(HV3DVertex);
 		d3dVertexBufferView.SizeInBytes = vertex_buffer_size;
 
 		hr = (*d3dDevice9)->CreateFence(
@@ -408,7 +405,7 @@ namespace winrt::PeregrineX12::implementation
 		(*d3dCommandList)->ClearRenderTargetView(*d3dRTVHandle, clearColor, 0, nullptr);
 		(*d3dCommandList)->IASetPrimitiveTopology(D3D_PRIMITIVE_TOPOLOGY_TRIANGLELIST);
 		(*d3dCommandList)->IASetVertexBuffers(0, 1, &d3dVertexBufferView);
-		(*d3dCommandList)->DrawInstanced(9, 1, 0, 0);
+		(*d3dCommandList)->DrawInstanced(oInputBuffer.Size()*3, 1, 0, 0);
 
 		d3dResourceBarrier = CD3DX12_RESOURCE_BARRIER::Transition(
 			d3dRenderTargets[frame_index], 

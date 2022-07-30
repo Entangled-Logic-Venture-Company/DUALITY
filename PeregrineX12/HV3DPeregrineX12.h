@@ -1,12 +1,8 @@
 ﻿#pragma once
 
+#include "HV3DObjLoader.h"
+
 #include "HV3DPeregrineX12.g.h"
-
-struct Vertex {
-    DirectX::XMFLOAT3 position;
-
-    DirectX::XMFLOAT4 color;
-};
 
 namespace winrt::PeregrineX12::implementation
 {
@@ -66,8 +62,8 @@ namespace winrt::PeregrineX12::implementation
             d3dViewport.MaxDepth    = 0.0f };
                 
         D3D12_RECT d3dScissorRect{
-            d3dScissorRect.left     = 0.0f,
-            d3dScissorRect.top      = 0.0f,
+            d3dScissorRect.left     = 0,
+            d3dScissorRect.top      = 0,
             d3dScissorRect.right    = 1920,
             d3dScissorRect.bottom   = 1080 };
 
@@ -163,8 +159,8 @@ namespace winrt::PeregrineX12::implementation
 
         D3D12_INPUT_ELEMENT_DESC d3dStandardVertex[3]{
             { "POSITION", 0, DXGI_FORMAT_R32G32B32_FLOAT, 0, 0, D3D12_INPUT_CLASSIFICATION_PER_VERTEX_DATA, 0 },
-            { "TEXCOORD", 0, DXGI_FORMAT_R32G32_FLOAT, 0, 12, D3D12_INPUT_CLASSIFICATION_PER_VERTEX_DATA, 0 },
-            { "NORMAL", 0, DXGI_FORMAT_R32G32B32_FLOAT, 0, 20, D3D12_INPUT_CLASSIFICATION_PER_VERTEX_DATA, 0 } };
+            { "NORMAL", 0, DXGI_FORMAT_R32G32B32_FLOAT, 0, 12, D3D12_INPUT_CLASSIFICATION_PER_VERTEX_DATA, 0 },
+            { "TEXCOORD", 0, DXGI_FORMAT_R32G32_FLOAT, 0, 24, D3D12_INPUT_CLASSIFICATION_PER_VERTEX_DATA, 0 } };
 
         D3D12_STREAM_OUTPUT_DESC d3dStreamOutputDesc{
             d3dStreamOutputDesc.pSODeclaration  = { nullptr },

@@ -20,7 +20,7 @@ namespace winrt::HV3DCoordST::implementation
 	{
 		oFileObj = make<HV3DFileObj>();
 			
-		oFileObj.LoadMeshFromFile();
+		oFileObj.LoadMeshFromFile(L"C:\\Users\\rebek\\ARCHIVE\\test.obj");
 
 
 

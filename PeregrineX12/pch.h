@@ -4,9 +4,12 @@
 #include <unknwn.h>
 #include <inspectable.h>
 #include <restrictederrorinfo.h>
-
 #include <hstring.h>
+
 #include <iostream>
+#include <fstream>
+
+#include <chrono>
 
 #include <processthreadsapi.h>
 

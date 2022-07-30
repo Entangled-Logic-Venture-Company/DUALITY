@@ -1,9 +1,9 @@
-namespace HV3DCoordST
+namespace HV3DLoaders
 {
     [default_interface]
-    runtimeclass HV3DFileObj
+    runtimeclass HV3DObjLoader
     {
-        HV3DFileObj();
+        HV3DObjLoader();
 
         Windows.Foundation.Collections.IVector<HV3DDUALITY.HV3DTensors.HV3DTriangle> LoadMeshFromFile(String file);
 

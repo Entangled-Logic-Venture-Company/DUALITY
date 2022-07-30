@@ -1,17 +1,19 @@
 ﻿#pragma once
 
+#include <winrt/Windows.Storage.h>
+
 #include "winrt/HV3DDUALITY.HV3DTensors.h"
 
-#include "HV3DFileObj.g.h"
+#include "Generated Files/HV3DLoaders.HV3DObjLoader.g.h"
 
-namespace winrt::HV3DCoordST::implementation
+namespace winrt::HV3DLoaders::implementation
 {
-    struct HV3DFileObj : HV3DFileObjT<HV3DFileObj>
+    struct HV3DObjLoader : HV3DObjLoaderT<HV3DObjLoader>
     {
     public:
-        HV3DFileObj() = default;
+        HV3DObjLoader() = default;
 
-        virtual Windows::Foundation::Collections::IVector<HV3DDUALITY::HV3DTensors::HV3DTriangle>
+        virtual Windows::Foundation::Collections::IVector<HV3DDUALITY::HV3DTensors::HV3DTriangle> 
             LoadMeshFromFile(hstring);
 
     private:
@@ -31,17 +33,18 @@ namespace winrt::HV3DCoordST::implementation
 
     private:
         Windows::Foundation::Collections::IVector<hstring> ReadFromObjAsync(std::wstring);
-
+        
         void CreateDebugFileAsync(std::wofstream**, std::wstring);
-
+        
         void WriteDebugFileAsync(std::wofstream**, std::wstring);
+
     };
 
 }
 
-namespace winrt::HV3DCoordST::factory_implementation
+namespace winrt::HV3DLoaders::factory_implementation
 {
-    struct HV3DFileObj : HV3DFileObjT<HV3DFileObj, implementation::HV3DFileObj>
+    struct HV3DObjLoader : HV3DObjLoaderT<HV3DObjLoader, implementation::HV3DObjLoader>
     {
 
     };

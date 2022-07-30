@@ -63,27 +63,46 @@ namespace HV3DDUALITY.HV3DTensors {
 		Single z;
 	};
 
-	struct HV3DTextCoord {
-		Single u;
-		Single v;
-	};
-
 	struct HV3DVertexNormal {
 		Single a;
 		Single b;
 		Single c;
 	};
 
+	struct HV3DTextCoord {
+		Single u;
+		Single v;
+	};
+
+	struct HV3DRGBA {
+		Single red;
+		Single green;
+		Single blue;
+		Single alpha;
+	};
+
 	struct HV3DVertex {
 		HV3DVertexCoord vcoord;
-		HV3DTextCoord tcoord;
 		HV3DVertexNormal normal;
+		HV3DTextCoord tcoord;
+	};
+
+	struct HV3DVertexFlatColor {
+		HV3DVertexCoord vcoord;
+		HV3DVertexNormal normal;
+		HV3DRGBA tcoord;
 	};
 
 	struct HV3DTriangle {
 		HV3DVertex vert1;
 		HV3DVertex vert2;
 		HV3DVertex vert3;
+	};
+
+	struct HV3DTriangleFlatColor {
+		HV3DVertexFlatColor vert1;
+		HV3DVertexFlatColor vert2;
+		HV3DVertexFlatColor vert3;
 	};
 
 	[uuid(895F1DCD-D1D0-414E-BBFA-31D0A298B29D)]

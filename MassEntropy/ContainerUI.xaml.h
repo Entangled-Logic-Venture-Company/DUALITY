@@ -1,7 +1,7 @@
 ﻿#pragma once
 
 #include "winrt/HV3DHEADER.h"
-#include "winrt/HV3DDUALITY.HV3DView.h"
+#include "winrt/HV3DDUALITY.HV3DTensors.h"
 #include "winrt/HV3DDUALITY.HV3DEnvironment.h"
 
 #include "ActivationFactory.h"
@@ -30,7 +30,7 @@ namespace winrt::MassEntropy::implementation
     private:
         void LoadPipeline();
 
-        HV3DDUALITY::HV3DView::IHV3DPipeline oPipeline{ nullptr };
+        HV3DDUALITY::HV3DTensors::IHV3DPipeline oPipeline{ nullptr };
 
         void RegisterTickEvent();
 
