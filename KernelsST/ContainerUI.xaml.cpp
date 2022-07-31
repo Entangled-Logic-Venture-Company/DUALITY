@@ -30,7 +30,7 @@ namespace winrt::KernelsST::implementation
         void* pProc = WINRT_IMPL_GetProcAddress(dllHandle, "DllGetActivationFactory");
         auto DllGetActivationFactory = reinterpret_cast<int32_t(__stdcall*)(void* classId, void** factory)>(pProc);
 
-        static const WCHAR* cname = L"PeregrineX12.HV3DPeregrineX12";
+        static const WCHAR* cname = L"PeregrineX12.HV4DPeregrineX12";
         const UINT32 cnamelen = (UINT32)wcslen(cname);
 
         HSTRING hcname = NULL;
@@ -43,9 +43,9 @@ namespace winrt::KernelsST::implementation
         Windows::Foundation::IActivationFactory oActivationFactory{ nullptr };
         winrt::copy_from_abi(oActivationFactory, *unkActivationFactory);
 
-        HV3DPipeline = oActivationFactory.ActivateInstance<HV3DDUALITY::HV3DView::IHV3DPipeline>();
+        HV4DPipeline = oActivationFactory.ActivateInstance<HV4DDUALITY::HV4DTensors::IHV4DPipeline>();
         
-        HV3DPipeline.HV3DOnInit(
+        HV4DPipeline.HV4DOnInit(
             ContainerView() );
 
         RegisterTickEvent();
@@ -68,7 +68,7 @@ namespace winrt::KernelsST::implementation
 
     void ContainerUI::OnTick(Windows::Foundation::IInspectable const&, Windows::Foundation::IInspectable const&)
     {
-        HV3DPipeline.HV3DOnRender();
+        HV4DPipeline.HV4DOnRender();
 
         return;
 

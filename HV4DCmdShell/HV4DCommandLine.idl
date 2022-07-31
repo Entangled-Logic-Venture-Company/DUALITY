@@ -1,0 +1,10 @@
+namespace HV4DCmdShell
+{
+    [default_interface]
+    runtimeclass HV4DCommandLine : HV4DDUALITY.HV4DEnvironment.IHV4DCmdShell
+    {
+        HV4DCommandLine();
+
+    }
+
+}

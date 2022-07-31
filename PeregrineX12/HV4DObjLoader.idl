@@ -1,0 +1,12 @@
+namespace HV4DLoaders
+{
+    [default_interface]
+    runtimeclass HV4DObjLoader
+    {
+        HV4DObjLoader();
+
+        Windows.Foundation.Collections.IVector<HV4DDUALITY.HV4DTensors.HV4DTriangle> LoadMeshFromFile(String file);
+
+    }
+
+}

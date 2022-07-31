@@ -1,0 +1,35 @@
+namespace HV4DDUALITY
+{
+	struct HV4DName {
+		String s;
+	};
+
+	struct HV4DPath {
+		String s;
+	};
+
+	struct HV4DFile {
+		String s;
+	};
+
+	struct HV4DDate {
+		String s;
+	};
+
+	struct HV4DVersion {
+		String s;
+	};
+
+	enum HV4DBasicError {
+		HV4D_OK			= 0x00000000,
+		HV4D_UNKNOWN	= 0x00000001,
+		HV4D_OUT_OF_MEM = 0x00000002,
+	};
+
+	struct HV4DActivationFactory {
+		HV4DName clsid;
+		HV4DPath dll;
+	};
+
+}
+

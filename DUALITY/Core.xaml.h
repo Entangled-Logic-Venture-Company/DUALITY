@@ -3,7 +3,7 @@
 #include <winstring.h>
 #include <activation.h>
 
-#include "HV3DCoreWindow.xaml.h"
+#include "HV4DCoreWindow.xaml.h"
 
 #include "Core.xaml.g.h"
 
@@ -17,7 +17,7 @@ namespace winrt::DUALITY::implementation
         void OnLaunched(Microsoft::UI::Xaml::LaunchActivatedEventArgs const&);
 
     private:
-        winrt::DUALITY::HV3DCoreWindow oCoreWindow{ nullptr };
+        winrt::DUALITY::HV4DCoreWindow oCoreWindow{ nullptr };
 
     };
 

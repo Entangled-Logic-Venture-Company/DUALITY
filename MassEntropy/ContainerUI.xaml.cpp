@@ -38,13 +38,13 @@ namespace winrt::MassEntropy::implementation
     void ContainerUI::LoadShell()
     {
         winrt::Windows::Foundation::IActivationFactory oActivationFactory =
-            HV3DHelpers::GetActivationFactory(
-                L"C:/Users/rebek/source/DUALITY/x64/Debug/HV3DCmdShell/HV3DCmdShell.dll",
-                L"HV3DCmdShell.HV3DCommandLine");
+            HV4DHelpers::GetActivationFactory(
+                L"C:/Users/rebek/source/DUALITY/x64/Debug/HV4DCmdShell/HV4DCmdShell.dll",
+                L"HV4DCmdShell.HV4DCommandLine");
 
-        oCmdShell = oActivationFactory.ActivateInstance<HV3DDUALITY::HV3DEnvironment::IHV3DCmdShell>();
+        oCmdShell = oActivationFactory.ActivateInstance<HV4DDUALITY::HV4DEnvironment::IHV4DCmdShell>();
 
-        oCmdShell.HV3DNewShell();
+        oCmdShell.HV4DNewShell();
         
         return;
 
@@ -53,13 +53,13 @@ namespace winrt::MassEntropy::implementation
     void ContainerUI::LoadInputBuffer()
     {
         winrt::Windows::Foundation::IActivationFactory oActivationFactory =
-            HV3DHelpers::GetActivationFactory(
-                L"C:/Users/rebek/source/DUALITY/x64/Debug/HV3DCoordST/HV3DCoordST.dll",
-                L"HV3DCoordST.HV3DResourceManager");
+            HV4DHelpers::GetActivationFactory(
+                L"C:/Users/rebek/source/DUALITY/x64/Debug/HV4DCoordST/HV4DCoordST.dll",
+                L"HV4DCoordST.HV4DResourceManager");
 
-        oInputBuffer = oActivationFactory.ActivateInstance<HV3DDUALITY::HV3DEnvironment::IHV3DInputBuffer>();
+        oInputBuffer = oActivationFactory.ActivateInstance<HV4DDUALITY::HV4DEnvironment::IHV4DInputBuffer>();
 
-        oInputBuffer.HV3DLoadInputBufferFromFile(L"");
+        oInputBuffer.HV4DLoadInputBufferFromFile(L"");
         
         return;
 
@@ -68,13 +68,13 @@ namespace winrt::MassEntropy::implementation
     void ContainerUI::LoadPipeline()
     {
         winrt::Windows::Foundation::IActivationFactory oObj =
-            HV3DHelpers::GetActivationFactory(
+            HV4DHelpers::GetActivationFactory(
                 L"C:/Users/rebek/source/DUALITY/x64/Debug/PeregrineX12/PeregrineX12.dll",
-                L"PeregrineX12.HV3DPeregrineX12");
+                L"PeregrineX12.HV4DPeregrineX12");
 
-        oPipeline = oObj.ActivateInstance<HV3DDUALITY::HV3DTensors::IHV3DPipeline>();
+        oPipeline = oObj.ActivateInstance<HV4DDUALITY::HV4DTensors::IHV4DPipeline>();
 
-        oPipeline.HV3DOnInit(ContainerView());
+        oPipeline.HV4DOnInit(ContainerView());
 
         RegisterTickEvent();
 
@@ -96,7 +96,7 @@ namespace winrt::MassEntropy::implementation
 
     void ContainerUI::OnTick(Windows::Foundation::IInspectable const&, Windows::Foundation::IInspectable const&)
     {
-        oPipeline.HV3DOnRender();
+        oPipeline.HV4DOnRender();
 
         return;
 

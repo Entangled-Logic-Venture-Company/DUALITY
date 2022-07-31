@@ -1,0 +1,138 @@
+import "HV4DFramework.idl";
+
+namespace HV4DDUALITY.HV4DTensors {
+
+	struct HV4DRenderingEngine {
+		HV4DDUALITY.HV4DName					HV4DTag;
+		HV4DDUALITY.HV4DDate					HV4DModified;
+		HV4DDUALITY.HV4DVersion					HV4DRelease;
+		HV4DDUALITY.HV4DActivationFactory		HV4DEngine;
+	};
+
+	struct HV4DResolution {
+		Int32 x;
+		Int32 y;
+	};
+
+	struct HV4DAA {
+		String s;
+	};
+
+	struct HV4DMultiSampling {
+		String s;
+	};
+
+	struct HV4DSuperSampling {
+		Boolean b;
+	};
+
+	struct HV4DFilterMode {
+		String s;
+	};
+
+	struct HV4DPixelFilter {
+		HV4DFilterMode		m;
+		Int32				x;
+		Int32				y;
+		Boolean				b;
+	};
+
+	struct HV4DGamma {
+		Single s;
+	};
+
+	struct HV4DNearPlane {
+		Single f;
+	};
+
+	struct HV4DFarPlane {
+		Single f;
+	};
+
+	struct HV4DObject {
+		String name;
+		UInt32 num_vertices;
+		UInt32 num_textcoords;
+		UInt32 num_normalvectors;
+		UInt32 num_faces;
+	};
+
+	struct HV4DVertexCoord {
+		Single x;
+		Single y;
+		Single z;
+	};
+
+	struct HV4DVertexNormal {
+		Single a;
+		Single b;
+		Single c;
+	};
+
+	struct HV4DTextCoord {
+		Single u;
+		Single v;
+	};
+
+	struct HV4DRGBA {
+		Single red;
+		Single green;
+		Single blue;
+		Single alpha;
+	};
+
+	struct HV4DVertex {
+		HV4DVertexCoord vcoord;
+		HV4DVertexNormal normal;
+		HV4DTextCoord tcoord;
+	};
+
+	struct HV4DVertexFlatColor {
+		HV4DVertexCoord vcoord;
+		HV4DVertexNormal normal;
+		HV4DRGBA tcoord;
+	};
+
+	struct HV4DTriangle {
+		HV4DVertex vert1;
+		HV4DVertex vert2;
+		HV4DVertex vert3;
+	};
+
+	struct HV4DTriangleFlatColor {
+		HV4DVertexFlatColor vert1;
+		HV4DVertexFlatColor vert2;
+		HV4DVertexFlatColor vert3;
+	};
+
+	[uuid(895F1DCD-D1D0-414E-BBFA-31D0A298B29D)]
+	[version(0x10000001)]
+	interface IHV4DCoordinateSpace : IInspectable
+	{
+		void HV4DWriteCluster();
+
+	};
+
+	[uuid(4C1D5F78-2464-4198-A978-3683434838BD)]
+	[version(0x10000001)]
+	interface IHV4DPipeline : IInspectable
+	{
+		void HV4DOnInit(Object panel);
+
+		void HV4DOnUpdate();
+		
+		void HV4DOnRender();
+		
+		void HV4DOnDestroy();
+
+	};
+
+	[uuid(E5474E91-812D-4932-BA00-096B099CC92A)]
+	[version(0x10000001)]
+	interface IHV4DCoordinateSpaceView : IInspectable
+	{
+		void HV4DGrabCoordinateSpaceView();
+
+	};
+
+}

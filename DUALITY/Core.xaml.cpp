@@ -28,7 +28,7 @@ namespace winrt::DUALITY::implementation {
 
     void Core::OnLaunched(LaunchActivatedEventArgs const&)
     {
-        oCoreWindow = make<HV3DCoreWindow>();
+        oCoreWindow = make<HV4DCoreWindow>();
         oCoreWindow.Activate();
 
     }

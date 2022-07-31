@@ -1,8 +1,8 @@
 ﻿#pragma once
 
-#include "winrt/HV3DHEADER.h"
-#include "winrt/HV3DDUALITY.HV3DTensors.h"
-#include "winrt/HV3DDUALITY.HV3DEnvironment.h"
+#include "winrt/HV4DHEADER.h"
+#include "winrt/HV4DDUALITY.HV4DTensors.h"
+#include "winrt/HV4DDUALITY.HV4DEnvironment.h"
 
 #include "ActivationFactory.h"
 
@@ -20,17 +20,17 @@ namespace winrt::MassEntropy::implementation
     private:
         void LoadShell();
 
-        HV3DDUALITY::HV3DEnvironment::IHV3DCmdShell oCmdShell{ nullptr };
+        HV4DDUALITY::HV4DEnvironment::IHV4DCmdShell oCmdShell{ nullptr };
 
     private:
         void LoadInputBuffer();
 
-        HV3DDUALITY::HV3DEnvironment::IHV3DInputBuffer oInputBuffer{ nullptr };
+        HV4DDUALITY::HV4DEnvironment::IHV4DInputBuffer oInputBuffer{ nullptr };
 
     private:
         void LoadPipeline();
 
-        HV3DDUALITY::HV3DTensors::IHV3DPipeline oPipeline{ nullptr };
+        HV4DDUALITY::HV4DTensors::IHV4DPipeline oPipeline{ nullptr };
 
         void RegisterTickEvent();
 

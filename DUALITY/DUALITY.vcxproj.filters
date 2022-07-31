@@ -88,13 +88,13 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Page Include="HV3DCoreFrame.xaml">
+    <Page Include="HV4DCoreFrame.xaml">
       <Filter>Core</Filter>
     </Page>
-    <Page Include="HV3DCoreUI.xaml">
+    <Page Include="HV4DCoreUI.xaml">
       <Filter>Core</Filter>
     </Page>
-    <Page Include="HV3DCoreWindow.xaml">
+    <Page Include="HV4DCoreWindow.xaml">
       <Filter>Core</Filter>
     </Page>
   </ItemGroup>

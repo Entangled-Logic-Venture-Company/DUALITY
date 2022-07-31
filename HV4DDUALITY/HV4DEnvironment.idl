@@ -1,0 +1,100 @@
+import "HV4DTensors.idl";
+import "HV4DKeyboardBindings.idl";
+import "HV4DMouseBindings.idl";
+
+namespace HV4DDUALITY.HV4DEnvironment {
+
+	struct HV4DEnvironmentCPU {
+		HV4DDUALITY.HV4DPath HV4DProject;
+		HV4DDUALITY.HV4DPath HV4DPlugin;
+	};
+
+	struct HV4DEnvironmentGPU {
+		HV4DDUALITY.HV4DTensors.HV4DRenderingEngine	re;
+		HV4DDUALITY.HV4DTensors.HV4DResolution			r;
+		HV4DDUALITY.HV4DTensors.HV4DAA					aa;
+		HV4DDUALITY.HV4DTensors.HV4DMultiSampling		ms;
+		HV4DDUALITY.HV4DTensors.HV4DSuperSampling		ss;
+		HV4DDUALITY.HV4DTensors.HV4DFilterMode			pm;
+		HV4DDUALITY.HV4DTensors.HV4DPixelFilter		pf;
+		HV4DDUALITY.HV4DTensors.HV4DGamma				g;
+		HV4DDUALITY.HV4DTensors.HV4DNearPlane			np;
+		HV4DDUALITY.HV4DTensors.HV4DFarPlane			fp;
+	};
+
+	struct HV4DEnvironmentBindings {
+		HV4DDUALITY.HV4DBindings.HV4DKeyboardBindings	kb;
+		HV4DDUALITY.HV4DBindings.HV4DMouseBindings		mb;
+	};
+
+	struct HV4DEnvironmentShell {
+		HV4DDUALITY.HV4DName					sp;
+		HV4DDUALITY.HV4DDate					dm;
+		HV4DDUALITY.HV4DVersion					v;
+		HV4DDUALITY.HV4DActivationFactory		af;
+	};
+
+	struct HV4DEnvironmentPlugin {
+		HV4DDUALITY.HV4DPath		pj;
+		HV4DDUALITY.HV4DFile		fj;
+		HV4DDUALITY.HV4DDate		dm;
+		HV4DDUALITY.HV4DVersion		v;
+	};
+
+	[uuid(C567AE0B-27FD-46EC-B23C-766F91F1DEBA)]
+	[version(0x10000001)]
+	interface IHV4DHeader : IInspectable
+	{
+		HRESULT HV4DLoadFromFile(HV4DDUALITY.HV4DFile file);
+
+	};
+
+	[uuid(2EB303F0-92A9-4B79-BD23-D2089444A4D4)]
+	[version(0x10000001)]
+	interface IHV4DCallbackInterface : IInspectable
+	{
+		void Exit();
+
+	};
+
+	[uuid(23E3D5AD-6C7A-483D-AB2E-166E9CD435BE)]
+	[version(0x10000001)]
+	interface IHV4DPortalInterface : IInspectable
+	{
+		void HV4DGetCallbackInterface(IHV4DCallbackInterface e);
+
+	};
+
+	[uuid(157F533E-5EFC-48C7-BACA-B506E4857B90)]
+	[version(0x10000001)]
+	interface IHV4DApplication : IInspectable
+	{
+		void HV4DLoadApplication();
+
+	};
+
+	[uuid(B0344658-8549-4D45-8CBE-96A89144B1AB)]
+	[version(0x10000001)]
+	interface IHV4DCmdShell : IInspectable
+	{
+		void HV4DNewShell();
+
+	};
+
+	[uuid(31063F12-F1AF-40CA-AB35-1BBD50F09C04)]
+	[version(0x10000001)]
+	interface IHV4DInputBuffer : IInspectable
+	{
+		void HV4DLoadInputBufferFromFile(String file);
+
+	};
+
+	[uuid(EBEF780B-2115-492E-8AC8-47BF7D188ABF)]
+	[version(0x10000001)]
+	interface IHV4DCluster : IInspectable
+	{
+		void HV4DMountCluster();
+
+	};
+	
+}

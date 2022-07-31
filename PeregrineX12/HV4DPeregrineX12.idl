@@ -1,0 +1,10 @@
+namespace PeregrineX12
+{
+    [default_interface]
+    runtimeclass HV4DPeregrineX12 : HV4DDUALITY.HV4DTensors.IHV4DPipeline
+    {
+        HV4DPeregrineX12();
+
+    }
+
+}

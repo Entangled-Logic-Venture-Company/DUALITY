@@ -23,7 +23,7 @@ namespace winrt::MassEntropy::implementation
 
         winrt::MassEntropy::ContainerFrame      oApplicationFrame{ nullptr };
 
-        HV3DHEADER::HV3DHeader                      oApplicationHeader{ nullptr };
+        HV4DHEADER::HV4DHeader                      oApplicationHeader{ nullptr };
 
     };
 

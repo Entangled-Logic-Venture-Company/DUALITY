@@ -1,0 +1,131 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Resources">
+      <UniqueIdentifier>accd3aa8-1ba0-4223-9bbe-0c431709210b</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tga;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Generated Files">
+      <UniqueIdentifier>{926ab91d-31b4-48c3-b9a4-e681349f27f0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Runtime Class">
+      <UniqueIdentifier>{e5602e48-d59e-4a80-80c2-b096daabfabc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Project">
+      <UniqueIdentifier>{c036af2c-35b8-4a54-99af-4b241dd25b91}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Runtime Class\File Loaders">
+      <UniqueIdentifier>{aae4f55c-14cd-4520-91c3-f9fff5379888}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Runtime Class\Framework">
+      <UniqueIdentifier>{5b1f3a48-bbff-42ee-a685-6d53ea782fe5}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="$(GeneratedFilesDir)module.g.cpp">
+      <Filter>Project</Filter>
+    </ClCompile>
+    <ClCompile Include="pch.cpp">
+      <Filter>Project</Filter>
+    </ClCompile>
+    <ClCompile Include="HV4DFileST.cpp">
+      <Filter>Runtime Class\File Loaders</Filter>
+    </ClCompile>
+    <ClCompile Include="HV4DFileSTL.cpp">
+      <Filter>Runtime Class\File Loaders</Filter>
+    </ClCompile>
+    <ClCompile Include="HV4DFileFBX.cpp">
+      <Filter>Runtime Class\File Loaders</Filter>
+    </ClCompile>
+    <ClCompile Include="HV4DFileObj.cpp">
+      <Filter>Runtime Class\File Loaders</Filter>
+    </ClCompile>
+    <ClCompile Include="HV4DResourceManager.cpp">
+      <Filter>Runtime Class\Framework</Filter>
+    </ClCompile>
+    <ClCompile Include="HV4DSharedMemory.cpp">
+      <Filter>Runtime Class\Framework</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="pch.h">
+      <Filter>Project</Filter>
+    </ClInclude>
+    <ClInclude Include="HV3DFileFBX.h">
+      <Filter>Runtime Class\File Loaders</Filter>
+    </ClInclude>
+    <ClInclude Include="HV3DFileObj.h">
+      <Filter>Runtime Class\File Loaders</Filter>
+    </ClInclude>
+    <ClInclude Include="HV3DFileST.h">
+      <Filter>Runtime Class\File Loaders</Filter>
+    </ClInclude>
+    <ClInclude Include="HV3DFileSTL.h">
+      <Filter>Runtime Class\File Loaders</Filter>
+    </ClInclude>
+    <ClInclude Include="HV3DResourceManager.h">
+      <Filter>Runtime Class\Framework</Filter>
+    </ClInclude>
+    <ClInclude Include="HV3DFileST.h">
+      <Filter>Runtime Class\File Loaders</Filter>
+    </ClInclude>
+    <ClInclude Include="HV3DFileSTL.h">
+      <Filter>Runtime Class\File Loaders</Filter>
+    </ClInclude>
+    <ClInclude Include="HV3DFileFBX.h">
+      <Filter>Runtime Class\File Loaders</Filter>
+    </ClInclude>
+    <ClInclude Include="HV3DFileObj.h">
+      <Filter>Runtime Class\File Loaders</Filter>
+    </ClInclude>
+    <ClInclude Include="HV3DResourceManager.h">
+      <Filter>Runtime Class\Framework</Filter>
+    </ClInclude>
+    <ClInclude Include="HV3DSharedMemory.h">
+      <Filter>Runtime Class\Framework</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Midl Include="HV3DFileFBX.idl">
+      <Filter>Runtime Class\File Loaders</Filter>
+    </Midl>
+    <Midl Include="HV3DFileObj.idl">
+      <Filter>Runtime Class\File Loaders</Filter>
+    </Midl>
+    <Midl Include="HV3DFileST.idl">
+      <Filter>Runtime Class\File Loaders</Filter>
+    </Midl>
+    <Midl Include="HV3DFileSTL.idl">
+      <Filter>Runtime Class\File Loaders</Filter>
+    </Midl>
+    <Midl Include="HV3DFileST.idl">
+      <Filter>Runtime Class\File Loaders</Filter>
+    </Midl>
+    <Midl Include="HV3DFileSTL.idl">
+      <Filter>Runtime Class\File Loaders</Filter>
+    </Midl>
+    <Midl Include="HV3DFileFBX.idl">
+      <Filter>Runtime Class\File Loaders</Filter>
+    </Midl>
+    <Midl Include="HV3DFileObj.idl">
+      <Filter>Runtime Class\File Loaders</Filter>
+    </Midl>
+    <Midl Include="HV3DResourceManager.idl">
+      <Filter>Runtime Class\Framework</Filter>
+    </Midl>
+    <Midl Include="HV3DSharedMemory.idl">
+      <Filter>Runtime Class\Framework</Filter>
+    </Midl>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config">
+      <Filter>Project</Filter>
+    </None>
+    <None Include="HV4DCoordST.def">
+      <Filter>Project</Filter>
+    </None>
+    <None Include="PropertySheet.props">
+      <Filter>Project</Filter>
+    </None>
+  </ItemGroup>
+</Project>

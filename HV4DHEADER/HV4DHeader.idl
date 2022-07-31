@@ -1,0 +1,23 @@
+namespace HV4DHEADER
+{
+    [default_interface]
+    runtimeclass HV4DHeader : HV4DDUALITY.HV4DEnvironment.IHV4DHeader
+    {
+		HV4DHeader();
+
+		HV4DDUALITY.HV4DName									FileXML;
+	
+		HV4DDUALITY.HV4DDate									DateModified;
+		HV4DDUALITY.HV4DPath									PathJson;
+		HV4DDUALITY.HV4DFile									FileJson;
+	
+		HV4DDUALITY.HV4DEnvironment.HV4DEnvironmentCPU			EnvironmentCPU;
+		HV4DDUALITY.HV4DEnvironment.HV4DEnvironmentGPU			EnvironmentGPU;
+		HV4DDUALITY.HV4DEnvironment.HV4DEnvironmentBindings		EnvironmentBindings;
+		HV4DDUALITY.HV4DEnvironment.HV4DEnvironmentShell		EnvironmentShell;
+	
+		Windows.Foundation.Collections.IVector<HV4DDUALITY.HV4DEnvironment.HV4DEnvironmentPlugin> EnvironmentPlugins;
+
+    }
+
+}

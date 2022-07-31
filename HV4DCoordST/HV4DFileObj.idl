@@ -1,0 +1,12 @@
+namespace HV4DCoordST
+{
+    [default_interface]
+    runtimeclass HV4DFileObj
+    {
+        HV4DFileObj();
+
+        Windows.Foundation.Collections.IVector<HV4DDUALITY.HV4DTensors.HV4DTriangle> LoadMeshFromFile(String file);
+
+    }
+
+}

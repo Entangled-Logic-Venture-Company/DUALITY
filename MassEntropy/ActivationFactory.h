@@ -2,7 +2,7 @@
 
 #include <winstring.h>
 
-namespace HV3DHelpers {
+namespace HV4DHelpers {
 
 	winrt::Windows::Foundation::IActivationFactory GetActivationFactory(std::wstring dll, std::wstring coclass);
 

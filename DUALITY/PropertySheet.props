@@ -6,15 +6,15 @@
 	<ItemDefinitionGroup />
 	<ItemGroup />
 	<ItemGroup Label="WinMD">		
-		<Reference Include="C:/Users/rebek/source/DUALITY/x64/Debug/HV3DDUALITY/HV3DDUALITY.winmd">
+		<Reference Include="C:/Users/rebek/source/DUALITY/x64/Debug/HV4DDUALITY/HV4DDUALITY.winmd">
 			<IsWinmdFile>true</IsWinmdFile>
 		</Reference>
-		<Reference Include="C:/Users/rebek/source/DUALITY/x64/Debug/HV3DHEADER/HV3DHEADER.winmd">
+		<Reference Include="C:/Users/rebek/source/DUALITY/x64/Debug/HV4DHEADER/HV4DHEADER.winmd">
 			<IsWinmdFile>true</IsWinmdFile>
 		</Reference>
 	</ItemGroup>
 	<ItemGroup Label="dll">
-		<ReferenceCopyLocationPaths Include="C:/Users/rebek/source/DUALITY/x64/Debug/HV3DHEADER/HV3DHEADER.dll">
+		<ReferenceCopyLocationPaths Include="C:/Users/rebek/source/DUALITY/x64/Debug/HV4DHEADER/HV4DHEADER.dll">
 			<IsWinmdFile>false</IsWinmdFile>
 		</ReferenceCopyLocationPaths>
 	</ItemGroup>

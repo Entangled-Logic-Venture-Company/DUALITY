@@ -1,0 +1,10 @@
+namespace HV4DCoordST
+{
+    [default_interface]
+    runtimeclass HV4DFileFBX
+    {
+        HV4DFileFBX();
+
+    }
+
+}

@@ -124,29 +124,43 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="d3dx12.h" />
-    <ClInclude Include="pch.h" />
-    <ClInclude Include="HV3DPeregrineX12.h">
-      <DependentUpon>HV3DPeregrineX12.cpp</DependentUpon>
+    <ClInclude Include="HV4DPixels.h">
+      <DependentUpon>HV4DPixels.cpp</DependentUpon>
     </ClInclude>
-    <ClInclude Include="HV3DObjLoader.h">
-		<DependentUpon>HV3DObjLoader.cpp</DependentUpon>
+    <ClInclude Include="HV4DShader.h">
+      <DependentUpon>HV4DShader.cpp</DependentUpon>
+    </ClInclude>
+    <ClInclude Include="pch.h" />
+    <ClInclude Include="HV4DPeregrineX12.h">
+      <DependentUpon>HV4DPeregrineX12.cpp</DependentUpon>
+    </ClInclude>
+    <ClInclude Include="HV4DObjLoader.h">
+      <DependentUpon>HV4DObjLoader.cpp</DependentUpon>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="HV4DPixels.cpp">
+      <SubType>
+      </SubType>
+    </ClCompile>
+    <ClCompile Include="HV4DShader.cpp">
+      <SubType>
+      </SubType>
+    </ClCompile>
     <ClCompile Include="pch.cpp">
       <PrecompiledHeader>Create</PrecompiledHeader>
     </ClCompile>
-    <ClCompile Include="HV3DPeregrineX12.cpp" />
+    <ClCompile Include="HV4DPeregrineX12.cpp" />
     <ClCompile Include="$(GeneratedFilesDir)module.g.cpp" />
-	<ClCompile Include="HV3DObjLoader.cpp"/>
+    <ClCompile Include="HV4DObjLoader.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <Midl Include="HV3DPeregrineX12.idl">
+    <Midl Include="HV4DPeregrineX12.idl">
       <SubType>Code</SubType>
-      <DependentUpon>HV3DPeregrineX12.cpp</DependentUpon>
+      <DependentUpon>HV4DPeregrineX12.cpp</DependentUpon>
     </Midl>
-    <Midl Include="HV3DObjLoader.idl">
-	  <DependentUpon>HV3DObjLoader.cpp</DependentUpon>
+    <Midl Include="HV4DObjLoader.idl">
+      <DependentUpon>HV4DObjLoader.cpp</DependentUpon>
       <SubType>Code</SubType>
     </Midl>
   </ItemGroup>
@@ -154,6 +168,28 @@
     <None Include="packages.config" />
     <None Include="PeregrineX12.def" />
     <None Include="PropertySheet.props" />
+  </ItemGroup>
+  <ItemGroup>
+    <FxCompile Include="shaders.hlsl">
+      <EntryPointName Condition="'$(Configuration)|$(Platform)'=='Debug|arm64'">VSMain</EntryPointName>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|arm64'">Vertex</ShaderType>
+      <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Debug|arm64'">5.1</ShaderModel>
+      <EntryPointName Condition="'$(Configuration)|$(Platform)'=='Release|arm64'">VSMain</EntryPointName>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|arm64'">Vertex</ShaderType>
+      <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Release|arm64'">5.1</ShaderModel>
+      <EntryPointName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">VSMain</EntryPointName>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Vertex</ShaderType>
+      <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">5.1</ShaderModel>
+      <EntryPointName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">VSMain</EntryPointName>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Vertex</ShaderType>
+      <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">5.1</ShaderModel>
+      <EntryPointName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">VSMain</EntryPointName>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Vertex</ShaderType>
+      <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">5.1</ShaderModel>
+      <EntryPointName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">VSMain</EntryPointName>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Vertex</ShaderType>
+      <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Release|x64'">5.1</ShaderModel>
+    </FxCompile>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

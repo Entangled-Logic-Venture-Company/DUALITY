@@ -1,9 +1,0 @@
-namespace HV3DMetaDataST
-{
-    [default_interface]
-    runtimeclass Class
-    {
-        Class();
-        Int32 MyProperty;
-    }
-}

@@ -1,0 +1,9 @@
+import "HV4DFramework.idl";
+
+namespace HV4DDUALITY.HV4DBindings {
+
+	struct HV4DMouseBindings {
+		String HV4DConfiguration;
+	};
+
+}

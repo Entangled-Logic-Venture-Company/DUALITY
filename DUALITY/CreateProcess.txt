@@ -1,7 +1,7 @@
 
         HANDLE hToken{ nullptr };
         
-        LPCWSTR application_name{ L"C:/Users/rebek/source/DUALITY/x64/Debug/HV3DApplication/HV3DApplication.exe" };
+        LPCWSTR application_name{ L"C:/Users/rebek/source/DUALITY/x64/Debug/HV4DApplication/HV4DApplication.exe" };
         
         LPWSTR command_line{ nullptr };
         

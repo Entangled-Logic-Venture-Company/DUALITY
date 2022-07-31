@@ -123,18 +123,18 @@
     <Manifest Include="app.manifest" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="HV3DCoreFrame.xaml.h">
-      <DependentUpon>HV3DCoreFrame.xaml</DependentUpon>
+    <ClInclude Include="HV4DCoreFrame.xaml.h">
+      <DependentUpon>HV4DCoreFrame.xaml</DependentUpon>
     </ClInclude>
-    <ClInclude Include="HV3DCoreUI.xaml.h">
-      <DependentUpon>HV3DCoreUI.xaml</DependentUpon>
+    <ClInclude Include="HV4DCoreUI.xaml.h">
+      <DependentUpon>HV4DCoreUI.xaml</DependentUpon>
     </ClInclude>
     <ClInclude Include="pch.h" />
     <ClInclude Include="Core.xaml.h">
       <DependentUpon>Core.xaml</DependentUpon>
     </ClInclude>
-    <ClInclude Include="HV3DCoreWindow.xaml.h">
-      <DependentUpon>HV3DCoreWindow.xaml</DependentUpon>
+    <ClInclude Include="HV4DCoreWindow.xaml.h">
+      <DependentUpon>HV4DCoreWindow.xaml</DependentUpon>
     </ClInclude>
     <ClInclude Include="rapidxml.hpp" />
     <ClInclude Include="rapidxml_iterators.hpp" />
@@ -143,16 +143,16 @@
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="Core.xaml" />
-    <Page Include="HV3DCoreFrame.xaml" />
-    <Page Include="HV3DCoreUI.xaml" />
-    <Page Include="HV3DCoreWindow.xaml" />
+    <Page Include="HV4DCoreFrame.xaml" />
+    <Page Include="HV4DCoreUI.xaml" />
+    <Page Include="HV4DCoreWindow.xaml" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="HV3DCoreFrame.xaml.cpp">
-      <DependentUpon>HV3DCoreFrame.xaml</DependentUpon>
+    <ClCompile Include="HV4DCoreFrame.xaml.cpp">
+      <DependentUpon>HV4DCoreFrame.xaml</DependentUpon>
     </ClCompile>
-    <ClCompile Include="HV3DCoreUI.xaml.cpp">
-      <DependentUpon>HV3DCoreUI.xaml</DependentUpon>
+    <ClCompile Include="HV4DCoreUI.xaml.cpp">
+      <DependentUpon>HV4DCoreUI.xaml</DependentUpon>
     </ClCompile>
     <ClCompile Include="pch.cpp">
       <PrecompiledHeader>Create</PrecompiledHeader>
@@ -160,8 +160,8 @@
     <ClCompile Include="Core.xaml.cpp">
       <DependentUpon>Core.xaml</DependentUpon>
     </ClCompile>
-    <ClCompile Include="HV3DCoreWindow.xaml.cpp">
-      <DependentUpon>HV3DCoreWindow.xaml</DependentUpon>
+    <ClCompile Include="HV4DCoreWindow.xaml.cpp">
+      <DependentUpon>HV4DCoreWindow.xaml</DependentUpon>
     </ClCompile>
     <ClCompile Include="$(GeneratedFilesDir)module.g.cpp" />
   </ItemGroup>
@@ -170,17 +170,17 @@
       <SubType>Code</SubType>
       <DependentUpon>Core.xaml</DependentUpon>
     </Midl>
-    <Midl Include="HV3DCoreFrame.idl">
+    <Midl Include="HV4DCoreFrame.idl">
       <SubType>Code</SubType>
-      <DependentUpon>HV3DCoreFrame.xaml</DependentUpon>
+      <DependentUpon>HV4DCoreFrame.xaml</DependentUpon>
     </Midl>
-    <Midl Include="HV3DCoreUI.idl">
+    <Midl Include="HV4DCoreUI.idl">
       <SubType>Code</SubType>
-      <DependentUpon>HV3DCoreUI.xaml</DependentUpon>
+      <DependentUpon>HV4DCoreUI.xaml</DependentUpon>
     </Midl>
-    <Midl Include="HV3DCoreWindow.idl">
+    <Midl Include="HV4DCoreWindow.idl">
       <SubType>Code</SubType>
-      <DependentUpon>HV3DCoreWindow.xaml</DependentUpon>
+      <DependentUpon>HV4DCoreWindow.xaml</DependentUpon>
     </Midl>
   </ItemGroup>
   <ItemGroup>

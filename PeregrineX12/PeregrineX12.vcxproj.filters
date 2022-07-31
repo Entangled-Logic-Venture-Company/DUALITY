@@ -23,6 +23,9 @@
     <Filter Include="Helpers">
       <UniqueIdentifier>{64c82864-9de8-4df9-aed1-e81dd728f916}</UniqueIdentifier>
     </Filter>
+    <Filter Include="STD Class">
+      <UniqueIdentifier>{da2a9936-873b-481a-ad71-d8dc123053c4}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="$(GeneratedFilesDir)module.g.cpp">
@@ -31,11 +34,17 @@
     <ClCompile Include="pch.cpp">
       <Filter>Project</Filter>
     </ClCompile>
-    <ClCompile Include="HV3DPeregrineX12.cpp">
+    <ClCompile Include="HV4DPeregrineX12.cpp">
       <Filter>Runtime Class</Filter>
     </ClCompile>
-    <ClCompile Include="HV3DObjLoader.cpp">
+    <ClCompile Include="HV4DObjLoader.cpp">
       <Filter>Helpers</Filter>
+    </ClCompile>
+    <ClCompile Include="HV4DPixels.cpp">
+      <Filter>STD Class</Filter>
+    </ClCompile>
+    <ClCompile Include="HV4DShader.cpp">
+      <Filter>STD Class</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -59,10 +68,21 @@
     <ClInclude Include="HV3DObjLoader.h">
       <Filter>Helpers</Filter>
     </ClInclude>
+    <ClInclude Include="HV3DPixels.h">
+      <Filter>Runtime Class</Filter>
+    </ClInclude>
+    <ClInclude Include="HV3DShader.h">
+      <Filter>STD Class</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Midl Include="HV3DObjLoader.idl">
       <Filter>Helpers</Filter>
     </Midl>
+  </ItemGroup>
+  <ItemGroup>
+    <FxCompile Include="shaders.hlsl">
+      <Filter>Shaders</Filter>
+    </FxCompile>
   </ItemGroup>
 </Project>

@@ -1,0 +1,10 @@
+namespace HV4DCoordST
+{
+    [default_interface]
+    runtimeclass HV4DResourceManager : HV4DDUALITY.HV4DEnvironment.IHV4DInputBuffer
+    {
+        HV4DResourceManager();
+
+    }
+
+}
